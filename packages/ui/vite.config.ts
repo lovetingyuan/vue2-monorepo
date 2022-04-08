@@ -32,7 +32,6 @@ const getConfig = (env: ConfigEnv): UserConfig => {
         }),
         docPlugin(),
       ],
-
       build: {
         emptyOutDir: true,
         outDir: resolve(root, 'apps/docs/public/scene'),
@@ -60,7 +59,7 @@ const getConfig = (env: ConfigEnv): UserConfig => {
     build: {
       lib: {
         entry: resolve(__dirname, 'index.ts'),
-        name: 'HydraUI',
+        name: 'UI',
         fileName: (format) => `ui.${format}.js`,
       },
       rollupOptions: {

@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "files": [
-    "index.ts",
-    "scene/main.ts"
+  "includes": [
+    "scene",
+    "index.ts"
   ]
 }

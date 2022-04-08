@@ -24,18 +24,13 @@ const getGuideSidebar = () => [
     children: [{ text: 'changelog', link: '/renderer/changelog' }],
   },
   {
-    text: 'ui',
-    link: '/ui/readme',
+    text: 'components',
+    link: '/components/readme',
     children: [
-      { text: 'changelog', link: '/ui/changelog' },
+      { text: 'changelog', link: '/components/changelog' },
       {
         text: 'demo',
-        children: [
-          {
-            text: 'demo',
-            link: '/ui/demo/demo',
-          },
-        ],
+        link: '/components/demo/demo',
       },
     ],
   },

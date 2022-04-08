@@ -1,6 +1,6 @@
 import type { PluginFunction } from 'vue';
 import { version } from './package.json';
-import Demo from './components/demo/demo.vue';
+import Demo from './components/demo';
 
 const install: PluginFunction<never> = (vue) => {
   [Demo].forEach((comp: any) => {

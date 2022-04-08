@@ -23,7 +23,7 @@ if (typeof window === 'object') {
   const params = new URLSearchParams()
   params.append('src', props.src)
   params.append('title', props.title || '代码')
-  params.append('comp', `.${window.location.pathname.replace('.html', '.vue')}`)
+  params.append('comp', window.location.pathname.replace('.html', '.vue').replace(/^\//, ''))
 
   nextTick(() => { // ? SSR水合后并没有更新iframeSrc 不知道为什么
     if (import.meta.env.DEV) {

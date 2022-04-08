@@ -75,11 +75,11 @@ export default {
     },
     getSourceCode(file) {
       if (import.meta.env.DEV) {
-        const f = this.$slots.default[0].componentInstance.$options.file
-        if (file && file !== f) {
+        const { file: file2 } = this.$slots.default[0].componentInstance.$options
+        if (file && file !== file2) {
           return
         }
-        import(/* @vite-ignore */`${f}?raw&_t=${Date.now()}`).then(r => {
+        import(/* @vite-ignore */`${file2.replace(/^.+?\/components\//, '../components/')}?raw&_t=${Date.now()}`).then(r => {
           this.sourceCode = r.default;
         })
       } else {
@@ -107,10 +107,9 @@ export default {
     monospace
 }
 .component-example summary {
-  font-size: 1.2em;
   cursor: pointer;
   background-color: #ffd10033;
-  padding: 5px 15px;
+  padding: 8px 15px;
   border-radius: 4px;
   transition: all 0.3s;
 }
@@ -122,7 +121,7 @@ export default {
   content: '代码';
   float: right;
   font-size: 12px;
-  line-height: 28px;
+  line-height: 24px;
 }
 .component-example summary:hover {
   background-color: #ffd10066;

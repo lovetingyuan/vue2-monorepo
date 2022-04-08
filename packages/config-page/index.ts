@@ -5,10 +5,7 @@ const core: PluginObject<{
   env: 'production' | 'test' | 'development';
 }> = {
   install(vue, options) {
-    if (!options) {
-      throw new Error('core install requires options');
-    }
-    Object.assign(Page, options);
+    Object.assign(Page, options || {});
     if (vue.component(Page.name)) {
       if (import.meta.env.DEV) {
         console.warn('core can not be used more than once.');
@@ -33,7 +30,7 @@ const core: PluginObject<{
     vue.mixin({
       data() {
         return {
-          maya: {}, // 用于组件的双向绑定
+          configYard: {},
         };
       },
     });

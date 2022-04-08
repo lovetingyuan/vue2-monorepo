@@ -4,10 +4,7 @@
 
 This is a demo component.
 
-::: example aaa ./doc/a.vue
-:::
-
-::: example bbb ./doc/b.vue
+::: example demo_a ./doc/a.vue
 :::
 
 ::: tip
@@ -20,7 +17,7 @@ This is a demo component.
 <!-- @vuese:Demo:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|a|a 是一个属性|`String`|`false`|-|
+|message|message 是一个属性|`String`|`false`|hello|
 
 <!-- @vuese:Demo:props:end -->
 

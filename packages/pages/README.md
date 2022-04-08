@@ -4,13 +4,7 @@
 
 ### 开发
 
-页面开发类似于芥末系统，约定以`pages/**/index.vue`作为页面入口组件
-
-配置文件约定名字为`<horn_key>.config.ts`，默认导出配置对象
-
-### 发布配置
-
-运行 `pnpm run pub-configs`
+页面开发约定以`pages/**/index.vue`作为页面入口组件
 
 ::: warning 注意
 

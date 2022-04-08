@@ -9,7 +9,7 @@ const comp = url.get('comp');
 if (import.meta.env.DEV) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  import(/* @vite-ignore */ `.${comp}`);
+  import(/* @vite-ignore */ `../${comp}`);
 }
 if (src) {
   const lh = 'http://localhost/';

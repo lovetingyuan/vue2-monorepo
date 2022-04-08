@@ -1,6 +1,5 @@
 function loadUMD(version: string) {
-  const url = `https://npm.cdn/renderer-${version}/renderer.umd.js`;
-
+  const url = `https://cdn.jsdelivr.net/npm/renderer@${version}/dist/renderer.umd.js`;
   if (!(window as any).ConfigRenderer) {
     const script = document.createElement('script');
     script.src = url;

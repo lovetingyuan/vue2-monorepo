@@ -1,7 +1,5 @@
-import Renderer from './renderer/index.vue'
+import Renderer from './src/renderer.vue';
 
-export * from './types/page'
+export * from './types/page';
 
-export {
-  Renderer,
-}
+export { Renderer };

@@ -5,6 +5,7 @@
   "main": "./dist/renderer.umd.js",
   "module": "./dist/renderer.es.js",
   "types": "./dist/index.d.ts",
+  "jsdelivr": "./dist/renderer.umd.js",
   "exports": {
     "development": "./index.ts",
     "import": "./dist/renderer.es.js",

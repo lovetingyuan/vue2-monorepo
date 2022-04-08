@@ -1,15 +1,15 @@
 <template>
-  <div>this is a demo component</div>
+  <div>this is a demo component, and {{ message }}</div>
 </template>
 
 <script>
 export default {
   name: 'Demo',
   props: {
-    // a 是一个属性
-    a: {
+    // message 是一个属性
+    message: {
       type: String,
-      default: ''
+      default: 'hello'
     }
   },
   methods: {
@@ -28,10 +28,7 @@ export default {
 <doc>
 This is a demo component.
 
-::: example aaa ./doc/a.vue
-:::
-
-::: example bbb ./doc/b.vue
+::: example demo_a ./doc/a.vue
 :::
 
 ::: tip

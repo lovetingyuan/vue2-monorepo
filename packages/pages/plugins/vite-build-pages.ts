@@ -1,4 +1,4 @@
-import type { Plugin } from 'vite';
+import { normalizePath, type Plugin } from 'vite';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import assert from 'assert';
@@ -41,7 +41,7 @@ export default (): Plugin | null => {
         const pageChunk = pages[f].toString().match(/import\("(.+?)"\)/)?.[1];
         assert(typeof pageChunk === 'string');
         const file = f.replace('/index.vue', '.js'); // ./foo/bar.js
-        const relativePath = path.relative(file, pageChunk); // ../../index.js
+        const relativePath = normalizePath(path.relative(file, pageChunk)); // ../../index.js
         this.emitFile({
           fileName: path.join('pages', file),
           type: 'asset',

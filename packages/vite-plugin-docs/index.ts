@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import { type Plugin, searchForWorkspaceRoot } from 'vite';
+import { type Plugin, searchForWorkspaceRoot, normalizePath } from 'vite';
 import fs from 'fs-extra';
 import path from 'path';
 import { parser } from '@vuese/parser';
@@ -81,7 +81,7 @@ function docPlugin(): Plugin {
         return `
         export default sfc => {
           if (import.meta.env.DEV) {
-            sfc.options.file = ${JSON.stringify(file)}
+            sfc.options.file = ${JSON.stringify(normalizePath(file))}
             window.dispatchEvent(
               new CustomEvent('__code_update__', {
                 detail: { file: sfc.options.file },
