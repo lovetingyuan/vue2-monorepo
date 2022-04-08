@@ -1,5 +1,5 @@
 <RM />
 
 <script setup>
-  import RM from '@packages/hydra-ui/README.md'
+  import RM from '@packages/ui/README.md'
 </script>

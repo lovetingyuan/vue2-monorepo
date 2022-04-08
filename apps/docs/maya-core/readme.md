@@ -1,5 +1,5 @@
 <CL />
 
 <script setup>
-  import CL from '@packages/maya-core/README.md'
+  import CL from '@packages/core/README.md'
 </script>

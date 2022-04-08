@@ -13,7 +13,7 @@ module.exports = defineConfig({
   overrides: [
     {
       files: [
-        'packages/{maya-core,maya-renderer,hydra-pages,hydra-ui}/**/*.{js,jsx,ts,tsx,vue}',
+        'packages/{core,renderer,pages,ui}/**/*.{js,jsx,ts,tsx,vue}',
         'apps/**/*.{js,jsx,ts,tsx,vue}',
       ],
       extends: ['plugin:config/vue2'],

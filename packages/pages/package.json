@@ -1,0 +1,60 @@
+{
+  "name": "pages",
+  "version": "0.0.1",
+  "description": "用来存放共享的配置化页面，在不同系统间复用",
+  "exports": {
+    "./*": {
+      "development": "./src/pages/*/index.vue",
+      "import": "./dist/pages/*",
+      "require": "./dist/pages/*"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/pages/*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "release": "release",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "peerDependencies": {
+    "ui": "*",
+    "vue": "^2.6.14",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "devDependencies": {
+    "@types/lodash.isequal": "^4.5.5",
+    "ui": "workspace:*",
+    "renderer": "workspace:*",
+    "enquirer": "^2.3.6",
+    "fs-extra": "^10.0.1",
+    "globby": "^13.1.1",
+    "lodash.isequal": "^4.5.0",
+    "node-fetch": "2.6.1",
+    "picocolors": "^1.0.0",
+    "scripts": "workspace:*",
+    "simple-git": "^2.48.0",
+    "tsconfig": "workspace:*"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": "./plugins/*.ts",
+        "extends": "plugin:config/node",
+        "rules": {
+          "consistent-return": "off"
+        }
+      }
+    ]
+  }
+}

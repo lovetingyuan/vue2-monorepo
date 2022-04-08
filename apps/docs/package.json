@@ -10,10 +10,6 @@
     "lint": "eslint .vitepress",
     "lint:fix": "eslint .vitepress --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://dev.sankuai.com/code/repo-detail/grocery/mall-fe-pc-maya"
-  },
   "keywords": [
     "docs"
   ],

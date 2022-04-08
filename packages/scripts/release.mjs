@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 更新并发布包到mnpm
+ * 更新并发布包到npm
  */
 import path from 'path'
 import color from 'picocolors'
@@ -42,7 +42,7 @@ async function main() {
     const { yes } = await enquirer.prompt({
       type: 'confirm',
       name: 'yes',
-      message: '无法获取npm用户名，请确认是否已登录mnpm，继续发布可能失败，继续吗？',
+      message: '无法获取npm用户名，请确认是否已登录npm，继续发布可能失败，继续吗？',
     })
     if (!yes) {
       return
@@ -116,7 +116,7 @@ async function main() {
         message: '仅更新 version 和 tag',
       },
       {
-        message: '更新并发布至 mnpm 和 git',
+        message: '更新并发布至 npm 和 git',
         name: 2,
       },
       {
@@ -165,7 +165,7 @@ async function main() {
     await git.push('origin', current, ['--follow-tags'])
   }
 
-  console.log(color.cyan(`publish ${pkg.name} to mnpm by ${user || 'N/A'}...`))
+  console.log(color.cyan(`publish ${pkg.name} to npm by ${user || 'N/A'}...`))
   if (!dryRun) {
     await execa('npm', ['publish', ...(releaseTag ? ['--tag', releaseTag] : [])], { stdio: 'inherit' })
   }

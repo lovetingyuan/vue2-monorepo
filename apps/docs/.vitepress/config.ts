@@ -14,14 +14,14 @@ const getGuideSidebar = () => [
     link: '/',
   },
   {
-    text: 'maya-core',
-    link: '/maya-core/readme',
-    children: [{ text: 'changelog', link: '/maya-core/changelog' }],
+    text: 'core',
+    link: '/core/readme',
+    children: [{ text: 'changelog', link: '/core/changelog' }],
   },
   {
-    text: 'maya-renderer',
-    link: '/maya-renderer/readme',
-    children: [{ text: 'changelog', link: '/maya-renderer/changelog' }],
+    text: 'renderer',
+    link: '/renderer/readme',
+    children: [{ text: 'changelog', link: '/renderer/changelog' }],
   },
   {
     text: 'components',
@@ -62,9 +62,7 @@ export default defineConfig({
         '@packages': path.resolve(rootDir, 'packages'),
       },
     },
-    plugins: [
-      initMDPlugin()
-    ],
+    plugins: [initMDPlugin()],
   },
   markdown: {
     config(md) {

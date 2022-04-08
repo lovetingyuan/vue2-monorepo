@@ -4,10 +4,7 @@
   "private": true,
   "description": "适用于vue2的eslint配置",
   "main": "./index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://dev.sankuai.com/code/repo-detail/grocery/mall-fe-pc-maya"
-  },
+  
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

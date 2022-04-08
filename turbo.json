@@ -29,7 +29,7 @@
         "vite-plugin-pages#build"
       ]
     },
-    "@yxfe/hydra-ui#dev": {
+    "ui#dev": {
       "cache": false,
       "dependsOn": [
         "vite-plugin-docs#build"
@@ -49,7 +49,7 @@
     },
     "docs#build": {
       "dependsOn": [
-        "@yxfe/hydra-ui#build:docs"
+        "ui#build:docs"
       ],
       "outputs": [
         "dist/**",
@@ -57,13 +57,13 @@
       ],
       "cache": true
     },
-    "@yxfe/hydra-ui#build:docs": {
+    "ui#build:docs": {
       "cache": true,
       "dependsOn": [
         "vite-plugin-docs#build"
       ]
     },
-    "@yxfe/hydra-ui#build": {
+    "ui#build": {
       "cache": true,
       "dependsOn": [
         "vite-plugin-docs#build"

@@ -11,17 +11,9 @@
     "postinstall": "init-proxy"
   },
   "dependencies": {
-    "@mt-material/mtd-vue-pro": "^0.10.6",
-    "@ss/mtd-vue": "^0.3.32",
-    "@yxfe/log-components": "^0.1.14",
-    "@yxfe/log-poi-select": "^0.1.14",
-    "@yxfe/maya-core": "workspace:*",
-    "@yxfe/hydra-pages": "workspace:*",
-    "@yxfe/hydra-ui": "workspace:*",
-    "@yxfe/request": "^1.6.4",
-    "@yxfe/tools": "^1.2.12",
-    "lodash": "^4.17.21",
-    "vue": "^2.6.14"
+    "core": "workspace:*",
+    "pages": "workspace:*",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@vue/runtime-dom": "^3.2.22",

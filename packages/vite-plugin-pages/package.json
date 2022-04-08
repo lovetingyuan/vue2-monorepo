@@ -2,11 +2,10 @@
   "name": "vite-plugin-pages",
   "version": "0.0.1",
   "private": true,
-  "description": "支持vite的芥末系统约定式路由插件",
+  "description": "vite的约定式路由插件",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && npx tsc -b",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

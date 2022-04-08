@@ -5,36 +5,33 @@
 ::: example title ./doc/a.vue
 :::
 
-
 ## Props
 
 <!-- @vuese:SearchProTable:props:start -->
-|Name|Description|Type|Required|Default|
-|---|---|---|---|---|
-|filterProps|-|`Object`|`false`|-|
-|filters|-|`Array`|`true`|-|
-|filterButtons|-|`Array`|`false`|-|
-|fetchTable|-|`Function`|`true`|-|
-|buttons|-|`Array`|`false`|-|
-|columns|-|`Array`|`true`|-|
+
+| Name          | Description | Type       | Required | Default |
+| ------------- | ----------- | ---------- | -------- | ------- |
+| filterProps   | -           | `Object`   | `false`  | -       |
+| filters       | -           | `Array`    | `true`   | -       |
+| filterButtons | -           | `Array`    | `false`  | -       |
+| fetchTable    | -           | `Function` | `true`   | -       |
+| buttons       | -           | `Array`    | `false`  | -       |
+| columns       | -           | `Array`    | `true`   | -       |
 
 <!-- @vuese:SearchProTable:props:end -->
-
 
 ## Slots
 
 <!-- @vuese:SearchProTable:slots:start -->
-|Name|Description|Default Slot Content|
-|---|---|---|
-|item.slot|-|-|
+
+| Name      | Description | Default Slot Content |
+| --------- | ----------- | -------------------- |
+| item.slot | -           | -                    |
 
 <!-- @vuese:SearchProTable:slots:end -->
 
-
-
-
 <br>
 
-::: details Props类型
-<<< ../../packages/hydra-ui/components/search-table/props.ts
+::: details Props 类型
+<<< ../../packages/ui/components/search-table/props.ts
 :::
