@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Page from '@page';
 
-import MayaCore from 'core';
+import ConfigPage from 'config-page';
 
 Vue.config.productionTip = false;
-Vue.use(MayaCore);
+Vue.use(ConfigPage);
 
 // eslint-disable-next-line no-new
 new Vue({

@@ -1,14 +1,14 @@
 {
-  "name": "core",
+  "name": "config-page",
   "version": "0.0.1",
   "description": "配置化页面容器",
-  "main": "./dist/core.umd.js",
-  "module": "./dist/core.es.js",
+  "main": "./dist/config-page.umd.js",
+  "module": "./dist/config-page.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     "development": "./index.ts",
-    "import": "./dist/core.es.js",
-    "require": "./dist/core.umd.js"
+    "import": "./dist/config-page.es.js",
+    "require": "./dist/config-page.umd.js"
   },
   "scripts": {
     "build": "vite build && npm run types",

@@ -22,8 +22,6 @@
     "dist"
   ],
   "sideEffects": false,
-  
-  
   "peerDependencies": {
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14"

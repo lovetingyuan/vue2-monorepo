@@ -12,8 +12,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, './index.ts'),
-      name: 'MayaCore',
-      fileName: (format) => `core.${format}.js`,
+      name: 'ConfigPage',
+      fileName: (format) => `config-page.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

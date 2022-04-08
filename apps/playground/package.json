@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "DEBUG=vite:proxy vite --port 8080",
+    "dev": "cross-env DEBUG=vite:proxy vite --port 8080",
     "preview": "vite preview --port 5050",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -11,7 +11,7 @@
     "postinstall": "init-proxy"
   },
   "dependencies": {
-    "core": "workspace:*",
+    "config-page": "workspace:*",
     "pages": "workspace:*",
     "ui": "workspace:*"
   },

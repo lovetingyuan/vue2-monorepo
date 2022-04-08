@@ -4,7 +4,7 @@ import { exampleContainer, initMDPlugin } from 'vite-plugin-docs';
 
 import container from 'markdown-it-container';
 import path from 'path';
-import pkg from '../package.json';
+// import pkg from '../package.json';
 
 const rootDir = searchForWorkspaceRoot(__dirname);
 
@@ -14,9 +14,9 @@ const getGuideSidebar = () => [
     link: '/',
   },
   {
-    text: 'core',
-    link: '/core/readme',
-    children: [{ text: 'changelog', link: '/core/changelog' }],
+    text: 'config-page',
+    link: '/config-page/readme',
+    children: [{ text: 'changelog', link: '/config-page/changelog' }],
   },
   {
     text: 'renderer',
@@ -24,22 +24,18 @@ const getGuideSidebar = () => [
     children: [{ text: 'changelog', link: '/renderer/changelog' }],
   },
   {
-    text: 'components',
-    link: '/components/readme',
+    text: 'ui',
+    link: '/ui/readme',
     children: [
-      { text: 'changelog', link: '/components/changelog' },
+      { text: 'changelog', link: '/ui/changelog' },
       {
         text: 'demo',
         children: [
           {
             text: 'demo',
-            link: '/components/demo/demo',
+            link: '/ui/demo/demo',
           },
         ],
-      },
-      {
-        text: 'search-table',
-        link: '/components/search-table/SearchProTable',
       },
     ],
   },
@@ -52,8 +48,7 @@ const getGuideSidebar = () => [
 
 export default defineConfig({
   title: '配置化文档',
-  description: 'maya文档站',
-  // srcDir: rootDir,
+  description: '文档站',
   head: [['link', { rel: 'shortcut icon', href: '/icon.png' }]],
   vite: {
     resolve: {
@@ -75,7 +70,7 @@ export default defineConfig({
       { text: '文档', link: '/', activeMatch: '^/' },
       {
         text: '仓库',
-        link: pkg.repository.url,
+        link: '',
       },
     ],
     lastUpdated: '✍️',
