@@ -1,0 +1,51 @@
+{
+  "name": "docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "本仓库相关的文档站，采用vitepress构建",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve --port=5555",
+    "lint": "eslint .vitepress",
+    "lint:fix": "eslint .vitepress --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://dev.sankuai.com/code/repo-detail/grocery/mall-fe-pc-maya"
+  },
+  "keywords": [
+    "docs"
+  ],
+  "author": "huangbaitu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/markdown-it-container": "^2.0.4",
+    "markdown-it-container": "^3.0.0",
+    "tsconfig": "workspace:*",
+    "vite-plugin-docs": "workspace:*",
+    "vitepress": "^0.22.3"
+  },
+  "dependencies": {
+    "vue": "^3.2.31"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          ".vitepress/theme/**"
+        ],
+        "extends": "plugin:config/vue2"
+      },
+      {
+        "files": [
+          ".vitepress/*.{ts,js}"
+        ],
+        "extends": "plugin:config/node",
+        "rules": {
+          "node/no-unpublished-require": "off"
+        }
+      }
+    ]
+  }
+}

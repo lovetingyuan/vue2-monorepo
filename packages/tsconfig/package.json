@@ -1,0 +1,6 @@
+{
+  "name": "tsconfig",
+  "description": "存放公共的tsconfig配置",
+  "version": "0.0.1",
+  "private": true
+}

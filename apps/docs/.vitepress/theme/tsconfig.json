@@ -1,0 +1,6 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "files": [
+    "index.ts"
+  ]
+}

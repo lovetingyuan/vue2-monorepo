@@ -1,0 +1,98 @@
+{
+  "name": "@yxfe/maya-monorepo",
+  "version": "0.0.0",
+  "description": "配置化项目monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "turbo run build --include-dependencies",
+    "dev": "turbo run dev",
+    "play": "turbo run dev --scope=playground --include-dependencies",
+    "lint": "turbo run lint --parallel",
+    "lint:all": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "types": "turbo run types",
+    "docs": "turbo run dev --scope=docs --scope=@yxfe/hydra-ui --no-deps --include-dependencies",
+    "build:docs": "turbo run build --scope=docs",
+    "release": "pnpm run release --filter",
+    "clean": "clean"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@types/node": "^16.11.10",
+    "@vue/tsconfig": "^0.1.3",
+    "eslint": "^8.10.0",
+    "eslint-plugin-config": "workspace:*",
+    "scripts": "workspace:*",
+    "lint-staged": "^12.3.4",
+    "simple-git-hooks": "^2.7.0",
+    "turbo": "latest",
+    "typescript": "~4.5.2",
+    "vite": "^2.9.1",
+    "vite-plugin-vue2": "^1.9.3",
+    "vue": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "vue-tsc": "^0.33.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://dev.sankuai.com/code/repo-detail/grocery/mall-fe-pc-maya"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@6.32.3",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "scope-empty": [
+        2,
+        "never"
+      ],
+      "subject-case": [
+        0,
+        "never"
+      ],
+      "scope-enum": [
+        2,
+        "always",
+        [
+          "hydra-ui",
+          "hydra-pages",
+          "eslint-config",
+          "maya-core",
+          "maya-renderer",
+          "scripts",
+          "tsconfig",
+          "vite-plugin-pages",
+          "playground",
+          "docs",
+          "maya",
+          "release",
+          "deps"
+        ]
+      ]
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "./packages/eslint-plugin/project-config.js"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{js,vue,jsx,ts,tsx}": "pnpm exec eslint"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm exec commitlint --edit $1",
+    "pre-commit": "pnpm exec lint-staged"
+  }
+}

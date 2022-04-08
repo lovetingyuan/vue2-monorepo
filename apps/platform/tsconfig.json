@@ -1,0 +1,13 @@
+{
+  "extends": "tsconfig/app.json",
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2,
+    "experimentalDisableTemplateSupport": true
+  },
+  "include": [
+    "vite.config.*",
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ]
+}
