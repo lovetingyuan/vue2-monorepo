@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scene</title>
+</head>
+
+<body>
+  <script>
+    if (location.hostname === 'localhost') {
+      const localhost = 'http://localhost:3033';
+      fetch(localhost).then(r => r.text()).then((html) => {
+        html = html.replace('<head>', `<head><base href="${localhost}">`);
+        document.open()
+        document.write(html)
+        document.close()
+      }).catch(err => {
+        document.write('<p>页面加载错误</p>')
+      })
+    }
+  </script>
+</body>
+
+</html>

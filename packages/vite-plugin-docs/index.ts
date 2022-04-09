@@ -5,8 +5,7 @@ import path from 'path';
 import { parser } from '@vuese/parser';
 import { Render } from '@vuese/markdown-render';
 
-const docPort = process.env.DOC_PORT ? +process.env.DOC_PORT : 3033;
-const initMD = `<Start :port="${docPort}" title="本文件由组件 doc 块和注释自动生成，勿直接修改。" />`;
+const initMD = '<Doc title="本文件由组件 doc 块和注释自动生成，勿直接修改。" />';
 const rootDir = searchForWorkspaceRoot(__dirname);
 
 function exampleContainer(md: any, container: any) {
@@ -17,16 +16,14 @@ function exampleContainer(md: any, container: any) {
     },
     // eslint-disable-next-line consistent-return
     render(tokens: any[], idx: number) {
-      const { info }: { info?: string } = tokens[idx];
+      let { info = '' }: { info?: string } = tokens[idx];
+      info = info.trim();
       if (!info) {
         return '';
       }
-      if (info.trim().startsWith('example ')) {
-        const [, title, src] = info
-          .trim()
-          .split(' ')
-          .map((v) => v.trim());
-        return `\n<Example :port="${docPort}" title="${title}" src="${src}" />\n`;
+      if (info.startsWith('example ')) {
+        const [, src, ...title] = info.split(' ')
+        return `\n<Doc title="${title.join(' ')}" src="${src}" />\n`;
       }
     },
   });
@@ -65,7 +62,8 @@ function docPlugin(): Plugin {
     config() {
       return {
         server: {
-          port: docPort,
+          port: 3033,
+          strictPort: true
         },
       };
     },

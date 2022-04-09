@@ -1,10 +1,13 @@
-<Start :port="3033" title="本文件由组件 doc 块和注释自动生成，勿直接修改。" />
+<Doc title="本文件由组件 doc 块和注释自动生成，勿直接修改。" />
 
 # Demo
 
 This is a demo component.
 
-::: example demo_a ./doc/a.vue
+::: example ./doc/a.vue demo a
+:::
+
+::: example ./doc/b.vue demo b
 :::
 
 ::: tip

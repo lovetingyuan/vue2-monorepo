@@ -4,7 +4,6 @@ import { exampleContainer, initMDPlugin } from 'vite-plugin-docs';
 
 import container from 'markdown-it-container';
 import path from 'path';
-// import pkg from '../package.json';
 
 const rootDir = searchForWorkspaceRoot(__dirname);
 

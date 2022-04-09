@@ -1,7 +1,7 @@
 <template>
   <section class="component-example">
     <details>
-      <summary> {{ title }} </summary>
+      <summary> {{ titleStr }} </summary>
       <div class="language-html">
         <span ref="copyBtn" class="copy-button" :data-clipboard-target="'#' + id">复制</span>
         <span v-if="dev" class="code-button" @click="code">打开</span>
@@ -26,7 +26,8 @@ export default {
     return {
       sourceCode: '',
       dev: import.meta.env.DEV,
-      id: `copy${Math.random().toString().slice(-5)}`
+      id: `copy${Math.random().toString().slice(-5)}`,
+      titleStr: this.title
     }
   },
   watch: {
@@ -39,32 +40,27 @@ export default {
       }
     }
   },
-
   mounted() {
-    this.handleUpdateCode = e => {
-      this.getSourceCode(e.detail.file)
-    }
-    window.addEventListener('__code_update__', this.handleUpdateCode)
-    this.getSourceCode()
+    window.addEventListener('__code_update__', (this.getSourceCode(), this.getSourceCode))
     this.resizeObserver = new ResizeObserver(() => {
       setTimeout(() => {
         const { height } = window.getComputedStyle(document.documentElement)
-        window.parent.postMessage({
-          height: parseInt(height, 10) + 2,
-          href: window.location.href
-        }, '*')
+        if (this.targetIframe) {
+          this.targetIframe.style.height = `${parseInt(height, 10) + 2}px`
+        }
       })
     })
     this.resizeObserver.observe(document.documentElement)
     this.clipboard = new window.ClipboardJS(this.$refs.copyBtn);
-    this.clipboard.on('success', (e) => {
-      e.clearSelection();
-    });
+    this.clipboard.on('success', e => e.clearSelection());
+    window.addEventListener('hashchange', this.updateTitle)
+    this.targetIframe = [...window.parent.document.querySelectorAll('iframe')].find(iframe => iframe.contentWindow === window)
   },
   beforeDestroy() {
-    window.removeEventListener('__code_update__', this.handleUpdateCode)
+    window.removeEventListener('__code_update__', this.getSourceCode)
     this.resizeObserver.unobserve(document.documentElement)
     this.clipboard.destroy();
+    window.removeEventListener('hashchange', this.updateTitle)
   },
   methods: {
     code() {
@@ -73,20 +69,22 @@ export default {
         fetch(`/__open-in-editor?file=${encodeURIComponent(file)}`)
       }
     },
-    getSourceCode(file) {
+    getSourceCode(evt) {
+      const { file, code } = this.$slots.default[0].componentInstance.$options
       if (import.meta.env.DEV) {
-        const { file: file2 } = this.$slots.default[0].componentInstance.$options
-        if (file && file !== file2) {
+        if (evt?.detail?.file && evt.detail.file !== file) {
           return
         }
-        import(/* @vite-ignore */`${file2.replace(/^.+?\/components\//, '../components/')}?raw&_t=${Date.now()}`).then(r => {
+        import(/* @vite-ignore */`${file.replace(/^.+?\/components\//, '../components/')}?raw&_t=${Date.now()}`).then(r => {
           this.sourceCode = r.default;
         })
       } else {
-        const { code } = this.$slots.default[0].componentInstance.$options
         this.sourceCode = code
       }
     },
+    updateTitle() {
+      this.titleStr = decodeURIComponent(window.location.hash).slice(1)
+    }
   },
 }
 </script>
@@ -104,7 +102,7 @@ export default {
 }
 .component-example code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace
+    monospace;
 }
 .component-example summary {
   cursor: pointer;
@@ -133,11 +131,7 @@ export default {
   border-radius: 5px;
   padding: 20px 10px;
 }
-.component-container iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+
 .copy-button,
 .code-button {
   position: absolute;

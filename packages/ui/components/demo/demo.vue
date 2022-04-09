@@ -28,7 +28,10 @@ export default {
 <doc>
 This is a demo component.
 
-::: example demo_a ./doc/a.vue
+::: example ./doc/a.vue demo a
+:::
+
+::: example ./doc/b.vue demo b
 :::
 
 ::: tip
