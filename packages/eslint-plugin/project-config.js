@@ -8,7 +8,7 @@ const { defineConfig } = require('eslint-define-config')
 module.exports = defineConfig({
   root: true,
   extends: ['plugin:config/base'],
-  ignorePatterns: ['dist', 'tsconfig'],
+  ignorePatterns: ['dist', 'ts-config'],
   // https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work
   overrides: [
     {

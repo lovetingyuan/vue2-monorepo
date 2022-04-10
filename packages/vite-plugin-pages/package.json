@@ -30,8 +30,7 @@
   },
   "devDependencies": {
     "@types/node-fetch": "2.6.1",
-    "rollup": "^2.59.0",
-    "tsconfig": "workspace:*"
+    "rollup": "^2.59.0"
   },
   "dependencies": {
     "node-fetch": "2.6.1"

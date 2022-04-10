@@ -32,7 +32,6 @@
     "fs-extra": "^10.0.1"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "tsconfig": "workspace:*"
+    "@types/fs-extra": "^9.0.13"
   }
 }

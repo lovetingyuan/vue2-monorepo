@@ -31,8 +31,6 @@
   "devDependencies": {
     "@vue/runtime-dom": "^3.2.31",
     "rollup-plugin-visualizer": "^5.5.2",
-    "scripts": "workspace:*",
-    "tsconfig": "workspace:*",
     "vite-plugin-docs": "workspace:*",
     "vite-plugin-inject-css": "workspace:*"
   },

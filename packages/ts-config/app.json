@@ -6,7 +6,7 @@
     "keyofStringsOnly": true,
     "allowJs": true,
     "types": [
-      "tsconfig/vue-shim"
+      "ts-config/vue-shim"
     ],
     "lib": [
       "ESNext",

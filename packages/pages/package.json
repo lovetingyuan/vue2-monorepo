@@ -42,9 +42,7 @@
     "lodash.isequal": "^4.5.0",
     "node-fetch": "2.6.1",
     "picocolors": "^1.0.0",
-    "scripts": "workspace:*",
     "simple-git": "^2.48.0",
-    "tsconfig": "workspace:*",
     "vite-plugin-inject-css": "workspace:*"
   },
   "eslintConfig": {
