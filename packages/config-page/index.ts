@@ -14,14 +14,14 @@ const core: PluginObject<{
     }
 
     // eslint-disable-next-line no-param-reassign
-    vue.config.errorHandler = function (err, vm, info) {
+    vue.config.errorHandler = function errorHandler(err, vm, info) {
       if (import.meta.env.DEV) {
         console.error('[core] CONFIGURATION_ERROR: ', err, vm, info);
       }
     };
 
     // eslint-disable-next-line no-param-reassign
-    vue.config.warnHandler = function (err, vm, info) {
+    vue.config.warnHandler = function warnHandler(err, vm, info) {
       if (import.meta.env.DEV) {
         console.warn('[core] CONFIGURATION_WARN: ', err, vm, info);
       }

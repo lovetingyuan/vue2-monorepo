@@ -7,8 +7,8 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve --port=5555",
-    "lint": "eslint .vitepress",
-    "lint:fix": "eslint .vitepress --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "docs"
@@ -26,21 +26,23 @@
     "vue": "^3.2.31"
   },
   "eslintConfig": {
+    "ignorePatterns": ["public/scene", "!.vitepress"],
     "overrides": [
-      {
-        "files": [
-          ".vitepress/theme/**"
-        ],
-        "extends": "plugin:config/vue2"
-      },
       {
         "files": [
           ".vitepress/*.{ts,js}"
         ],
         "extends": "plugin:config/node",
         "rules": {
-          "node/no-unpublished-require": "off"
+          "node/no-unpublished-require": "off",
+          "node/no-unpublished-import": "off"
         }
+      },
+      {
+        "files": [
+          ".vitepress/theme/**"
+        ],
+        "extends": "plugin:config/vue2"
       }
     ]
   }

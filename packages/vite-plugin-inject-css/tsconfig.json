@@ -1,10 +1,9 @@
 {
-  "extends": "tsconfig/app.json",
+  "extends": "tsconfig/node.json",
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": [
-    "scene",
+  "files": [
     "index.ts"
   ]
 }

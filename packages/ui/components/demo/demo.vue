@@ -25,6 +25,12 @@ export default {
 }
 </script>
 
+<style scoped>
+div {
+  font-style: italic;
+}
+</style>
+
 <doc>
 This is a demo component.
 

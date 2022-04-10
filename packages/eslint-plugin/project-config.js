@@ -20,7 +20,7 @@ module.exports = defineConfig({
     },
     {
       files: [
-        'packages/{vite-plugin-pages,vite-plugin-docs,eslint-plugin,scripts}/**/*.{js,ts}',
+        'packages/{vite-plugin-pages,vite-plugin-docs,vite-plugin-inject-css,eslint-plugin,scripts}/**/*.{js,ts}',
         '**/*.mjs',
         '**/vite.config.ts',
       ],

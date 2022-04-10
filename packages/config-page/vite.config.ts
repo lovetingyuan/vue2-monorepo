@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { createVuePlugin as vue2 } from 'vite-plugin-vue2';
 import { resolve } from 'path';
+import injectCSSPlugin from 'vite-plugin-inject-css'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,6 +9,7 @@ export default defineConfig({
     vue2({
       jsx: true,
     }),
+    injectCSSPlugin(),
   ],
   build: {
     lib: {
@@ -15,6 +17,7 @@ export default defineConfig({
       name: 'ConfigPage',
       fileName: (format) => `config-page.${format}.js`,
     },
+    cssCodeSplit: true,
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library

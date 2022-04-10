@@ -24,12 +24,6 @@ export default {
 </script>
 
 <style scoped>
-.loading-parent--relative {
-  position: relative !important;
-}
-.loading-parent--hidden {
-  overflow: hidden !important;
-}
 .loading-mask {
   display: block;
   position: absolute;
@@ -82,39 +76,14 @@ export default {
   stroke: #409eff;
   stroke-linecap: round;
 }
-.loading-spinner i {
-  color: #409eff;
-}
-.loading-fade-enter,
-.loading-fade-leave-active {
-  opacity: 0;
-}
-@-webkit-keyframes loading-rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+
 @keyframes loading-rotate {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-@-webkit-keyframes loading-dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -40px;
-  }
-  100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -120px;
-  }
-}
+
 @keyframes loading-dash {
   0% {
     stroke-dasharray: 1, 200;

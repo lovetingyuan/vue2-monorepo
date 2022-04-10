@@ -29,6 +29,7 @@
   "devDependencies": {
     "renderer": "workspace:*",
     "tsconfig": "workspace:*",
-    "scripts": "workspace:*"
+    "scripts": "workspace:*",
+    "vite-plugin-inject-css": "workspace:*"
   }
 }

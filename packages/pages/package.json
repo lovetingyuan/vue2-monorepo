@@ -44,7 +44,8 @@
     "picocolors": "^1.0.0",
     "scripts": "workspace:*",
     "simple-git": "^2.48.0",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "vite-plugin-inject-css": "workspace:*"
   },
   "eslintConfig": {
     "overrides": [

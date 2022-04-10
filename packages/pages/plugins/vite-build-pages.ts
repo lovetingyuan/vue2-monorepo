@@ -22,14 +22,6 @@ export default (): Plugin | null => {
         },
       };
     },
-    renderChunk(code, chunk) {
-      const { fileName, isDynamicEntry } = chunk;
-      const { viteMetadata } = chunk as any;
-      // vite wont inject css when build format is es
-      if (fileName.endsWith('.js') && isDynamicEntry && viteMetadata) {
-        return [...viteMetadata.importedCss].map((css) => `import "./${css}";`).join('\n') + code;
-      }
-    },
     async generateBundle(options, bundle) {
       const entry = bundle[entryFile];
       // eslint-disable-next-line no-param-reassign

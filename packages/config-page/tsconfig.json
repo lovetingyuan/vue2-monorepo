@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
   },
-  "includes": [
-    "*.ts",
+  "include": [
+    "index.ts",
+    "src"
   ]
 }

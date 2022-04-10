@@ -6,7 +6,7 @@ import { readdirSync } from 'fs';
 import { createVuePlugin as vue2 } from 'vite-plugin-vue2';
 import vs from 'rollup-plugin-visualizer';
 import { docPlugin } from 'vite-plugin-docs';
-import injectCss from './plugins/vite-plugin-inject-css';
+import injectCSSPlugin from 'vite-plugin-inject-css';
 import buildUmd from './plugins/vite-plugin-umd';
 
 const root = searchForWorkspaceRoot(__dirname);
@@ -50,7 +50,7 @@ const getConfig = (env: ConfigEnv): UserConfig => {
             typeof options.entryFileNames === 'string' ? `stats/${options.entryFileNames}.html` : 'stats/index.html',
         };
       }),
-      injectCss(),
+      injectCSSPlugin(),
       buildUmd({
         config: getConfig.bind(null, env),
         entries: readdirSync(componentsDir).map((f) => resolve(componentsDir, f)),

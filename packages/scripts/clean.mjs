@@ -5,7 +5,7 @@
 import { searchForWorkspaceRoot } from 'vite'
 import glob from 'fast-glob'
 import { fileURLToPath } from 'url'
-import { rmSync } from 'fs'
+import { rm } from 'fs'
 
 const root = searchForWorkspaceRoot(fileURLToPath(import.meta.url))
 
@@ -29,9 +29,13 @@ if (dryRun) {
 }
 
 dirs.forEach(d => {
-  rmSync(d, {
+  rm(d, {
     recursive: true,
     force: true
+  }, (err) => {
+    if (err) {
+      throw err
+    }
   })
 })
 

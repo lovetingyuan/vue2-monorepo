@@ -13,8 +13,8 @@
     "dev": "turbo run dev",
     "play": "turbo run dev --scope=playground --include-dependencies",
     "lint": "turbo run lint --parallel",
-    "lint:all": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "turbo run lint:fix --parallel",
+    "lint:all": "eslint . --fix",
     "types": "turbo run types",
     "docs": "turbo run dev --scope=docs --scope=ui --no-deps --include-dependencies",
     "build:docs": "turbo run build --scope=docs",
@@ -39,7 +39,7 @@
     "vite-plugin-vue2": "^1.9.3",
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
-    "vue-tsc": "^0.33.9"
+    "vue-tsc": "^0.34.0"
   },
   "engines": {
     "npm": ">=7.0.0",

@@ -1,4 +1,7 @@
-import { ref, nextTick, defineComponent, h, watchEffect } from 'vue';
+import {
+  ref,
+  nextTick, defineComponent, h, watchEffect
+} from 'vue';
 
 export default defineComponent({
   name: 'Doc',
@@ -27,28 +30,31 @@ export default defineComponent({
 
       nextTick(() => {
         // ? SSR水合后并没有更新iframeSrc 不知道为什么
-        iframeSrc.value = `${import.meta.env.BASE_URL}${
-          import.meta.env.DEV ? 'scene.html' : 'scene/index.html'
-        }?${params}`;
+        iframeSrc.value = `${
+          import.meta.env.BASE_URL + (import.meta.env.DEV ? 'scene.html' : 'scene/index.html')
+        }?${params.toString()}`;
       });
     }
-    const iframe = ref<HTMLIFrameElement | null>(null)
+    const iframe = ref<HTMLIFrameElement | null>(null);
     watchEffect(() => {
       if (iframe.value?.contentWindow) {
         iframe.value.contentWindow.location.hash = props.title || '';
       }
-    })
-    return () => (!props.src && import.meta.env.PROD) ? h('template') :
-      h('iframe', {
-        src: iframeSrc.value,
-        frameborder: '0',
-        title: props.title,
-        ref: iframe,
-        style: {
-          display: hidden.value ? 'none' : 'block',
-          width: '100%',
-          marginBottom: '20px',
-        },
-      });
+    });
+    return () => {
+      return !props.src && import.meta.env.PROD
+        ? h('template')
+        : h('iframe', {
+          src: iframeSrc.value,
+          frameborder: '0',
+          title: props.title,
+          ref: iframe,
+          style: {
+            display: hidden.value ? 'none' : 'block',
+            width: '100%',
+            marginBottom: '20px',
+          },
+        });
+    };
   },
 });
