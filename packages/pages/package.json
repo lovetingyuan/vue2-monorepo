@@ -1,7 +1,7 @@
 {
   "name": "pages",
   "version": "0.0.1",
-  "description": "用来存放共享的配置化页面，在不同系统间复用",
+  "description": "用来存放共享的页面，在不同系统间复用",
   "exports": {
     "./*": {
       "development": "./src/pages/*/index.vue",

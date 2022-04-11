@@ -41,7 +41,7 @@ const getGuideSidebar = () => [
 ];
 
 export default defineConfig({
-  title: '配置化文档',
+  title: '文档',
   description: '文档站',
   head: [['link', { rel: 'shortcut icon', href: '/icon.png' }]],
   vite: {

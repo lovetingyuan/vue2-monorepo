@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 // @ts-check
-
 import { searchForWorkspaceRoot } from 'vite'
 import glob from 'fast-glob'
 import { fileURLToPath } from 'url'

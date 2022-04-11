@@ -1,7 +1,7 @@
 {
   "name": "monorepo",
   "version": "0.0.0",
-  "description": "配置化项目monorepo",
+  "description": "vue2+ts+monorepo",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -22,8 +22,6 @@
     "clean": "clean"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.1.0",
-    "@commitlint/config-conventional": "^16.2.1",
     "@types/node": "^16.11.10",
     "@vue/tsconfig": "^0.1.3",
     "cross-env": "^7.0.3",
@@ -47,40 +45,6 @@
     "node": ">=16.0.0"
   },
   "packageManager": "pnpm@6.32.3",
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "scope-empty": [
-        2,
-        "never"
-      ],
-      "subject-case": [
-        0,
-        "never"
-      ],
-      "scope-enum": [
-        2,
-        "always",
-        [
-          "ui",
-          "pages",
-          "eslint-config",
-          "config-page",
-          "renderer",
-          "scripts",
-          "ts-config",
-          "vite-plugin-pages",
-          "playground",
-          "docs",
-          "release",
-          "deps",
-          "chore"
-        ]
-      ]
-    }
-  },
   "eslintConfig": {
     "root": true,
     "extends": [
@@ -91,7 +55,7 @@
     "**/*.{js,vue,jsx,ts,tsx}": "pnpm exec eslint"
   },
   "simple-git-hooks": {
-    "commit-msg": "pnpm exec commit-lint --edit $1",
+    "commit-msg": "pnpm exec lint-commit",
     "pre-commit": "pnpm exec lint-staged"
   }
 }
