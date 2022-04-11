@@ -4,13 +4,14 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-const dirname = fileURLToPath(import.meta.url)
+const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 async function main() {
   const { execa } = await import('execa')
-  const configFile = path.resolve(dirname, '../commitlint.config.js')
+  const configFile = path.resolve(dirname, 'commitlint.config.js')
   await execa('pnpm', ['exec', 'commitlint', '--edit', '.git/COMMIT_EDITMSG', '--config', configFile], {
-    stdio: 'inherit'
+    stdio: 'inherit',
+    cwd: dirname,
   })
 }
 
