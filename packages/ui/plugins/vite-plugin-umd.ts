@@ -55,7 +55,7 @@ export default (options: {
         ...userConfig,
         configFile: false
       }).catch(err => {
-        console.error('Failed to bundle components umd.', err)
+        console.error(`Failed to bundle umd version of ${name}.`, err)
         // eslint-disable-next-line no-process-exit
         process.exit(-1)
       })

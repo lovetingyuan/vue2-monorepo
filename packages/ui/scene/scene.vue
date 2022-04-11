@@ -92,7 +92,6 @@ export default {
 <style scoped>
 .component-example {
   position: relative;
-  padding: 0 5px;
 }
 
 .component-example pre {
@@ -126,8 +125,8 @@ export default {
 }
 
 .component-container {
-  margin-top: 20px;
   box-shadow: 0 0 4px 0px #dfdfdf;
+  margin: 20px 2px 0 2px;
   border-radius: 5px;
   padding: 20px 10px;
 }

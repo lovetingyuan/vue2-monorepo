@@ -2,7 +2,7 @@ import { Connect, send, ViteDevServer } from 'vite'
 import type { ApiRes, MockConfig } from '../types'
 
 export default (server: ViteDevServer, mockConfig: Record<string, MockConfig>) => {
-  const mockMiddleware: Connect.NextHandleFunction = async function (req, res, next) {
+  const mockMiddleware: Connect.NextHandleFunction = async function mock(req, res, next) {
     if (!req.url) { return next() }
     const url = new URL(req.url, 'http://localhost')
     const route = Object.keys(mockConfig).find((r) => {

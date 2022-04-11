@@ -7,6 +7,8 @@ import { Render } from '@vuese/markdown-render';
 
 const initMD = '<Doc title="本文件由组件 doc 块和注释自动生成，勿直接修改。" />';
 const rootDir = searchForWorkspaceRoot(__dirname);
+const DocPath = 'apps/docs';
+const UIPath = 'packages/ui';
 
 function exampleContainer(md: any, container: any) {
   // eslint-disable-next-line global-require
@@ -19,19 +21,15 @@ function exampleContainer(md: any, container: any) {
       let { info = '' }: { info?: string } = tokens[idx];
       info = info.trim();
       if (!info) {
-        return '';
+        return '</Doc>';
       }
-      if (info.startsWith('example ')) {
-        const [, src, ...title] = info.split(' ')
-        return `\n<Doc title="${title.join(' ')}" src="${src}" />\n`;
-      }
+      const [, src, ...title] = info.split(' ')
+      return `\n<Doc title="${title.join(' ')}" src="${src}">\n`;
     },
   });
 }
 
 function docPlugin(): Plugin {
-  const DocPath = 'apps/docs';
-  const UIPath = 'packages/ui';
   const updateDoc = (compFile: string, docStr: string) => {
     const source = fs.readFileSync(compFile, 'utf-8');
     let docContent = '';
@@ -104,7 +102,7 @@ function initMDPlugin(): Plugin {
     apply: 'serve',
     resolveId(id) {
       if (/^\/components\/.+?\/.+?\.md$/.test(id)) {
-        const mdFile = path.resolve(rootDir, 'apps/docs', `.${id}`);
+        const mdFile = path.resolve(rootDir, DocPath, `.${id}`);
         if (!fs.existsSync(mdFile)) {
           fs.outputFileSync(mdFile, initMD);
           return mdFile;

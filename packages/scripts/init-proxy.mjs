@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 // @ts-check
-
 /**
  * 为 vite-plugin-pages 初始化proxy配置文件
  */

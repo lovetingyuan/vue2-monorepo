@@ -13,7 +13,7 @@ export default defineComponent({
       type: String,
     },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const iframeSrc = ref('');
     const hidden = ref(false);
     if (!props.src) {
@@ -44,17 +44,24 @@ export default defineComponent({
     return () => {
       return !props.src && import.meta.env.PROD
         ? h('template')
-        : h('iframe', {
-          src: iframeSrc.value,
-          frameborder: '0',
-          title: props.title,
-          ref: iframe,
+        : h('div', {
           style: {
-            display: hidden.value ? 'none' : 'block',
-            width: '100%',
-            marginBottom: '20px',
-          },
-        });
+            padding: '0 8px',
+          }
+        }, [
+          slots.default?.(),
+          h('iframe', {
+            src: iframeSrc.value,
+            frameborder: '0',
+            title: props.title,
+            ref: iframe,
+            style: {
+              display: hidden.value ? 'none' : 'block',
+              width: '100%',
+              marginBottom: '20px',
+            },
+          })
+        ]);
     };
   },
 });

@@ -7,7 +7,8 @@
   "bin": {
     "release": "./release.mjs",
     "init-proxy": "./init-proxy.mjs",
-    "clean": "./clean.mjs"
+    "clean": "./clean.mjs",
+    "commit-lint": "./commit-lint.mjs"
   },
   "scripts": {
     "lint": "eslint .",
