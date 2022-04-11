@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import { loadRenderer } from './utils';
-import Loading from './loading.vue';
+import { loadRenderer } from './utils'
+import Loading from './loading.vue'
 
 export default {
   name: 'ConfigPage',
@@ -42,30 +42,30 @@ export default {
       renderer: null,
       error: false,
       uiConfig: '',
-    };
+    }
   },
   computed: {
     slots() {
       return Object.keys({
         ...this.$slots,
         ...this.$scopedSlots,
-      }).filter((s) => !s.startsWith('page-'));
+      }).filter((s) => !s.startsWith('page-'))
     },
   },
   created() {
-    const { version } = this.config;
+    const { version } = this.config
     loadRenderer(version)
       .then((res) => {
-        this.renderer = res.Renderer;
-        this.uiConfig = JSON.stringify(this.config);
-        this.$nextTick(() => this.$emit('rendered'));
+        this.renderer = res.Renderer
+        this.uiConfig = JSON.stringify(this.config)
+        this.$nextTick(() => this.$emit('rendered'))
       })
       .catch((err) => {
-        this.error = true;
+        this.error = true
         if (import.meta.env.DEV) {
-          console.error('[core] error: ', err);
+          console.error('[core] error: ', err)
         }
-      });
+      })
   }
-};
+}
 </script>

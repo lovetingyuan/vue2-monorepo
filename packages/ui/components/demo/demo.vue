@@ -35,13 +35,7 @@ div {
 This is a demo component.
 
 ::: example ./doc/a.vue demo a
-this is demo a
-
-* dsf
-* dsffas
-
-`dsdf`
-
+#### this is demo a
 :::
 
 ::: example ./doc/b.vue demo b

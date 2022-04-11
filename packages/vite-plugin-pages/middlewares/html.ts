@@ -1,6 +1,6 @@
-import { existsSync } from 'fs';
-import { resolve } from 'path';
-import type { Connect, ViteDevServer } from 'vite';
+import { existsSync } from 'fs'
+import { resolve } from 'path'
+import type { Connect, ViteDevServer } from 'vite'
 
 export default (server: ViteDevServer) => {
   const serveIndexHtml: Connect.NextHandleFunction = (req, res, next) => {
@@ -14,7 +14,7 @@ export default (server: ViteDevServer) => {
         }
       }
     }
-    next();
+    next()
   }
   return serveIndexHtml
 }

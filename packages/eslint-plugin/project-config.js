@@ -8,7 +8,7 @@ const { defineConfig } = require('eslint-define-config')
 module.exports = defineConfig({
   root: true,
   extends: ['plugin:config/base'],
-  ignorePatterns: ['dist', 'ts-config'],
+  ignorePatterns: ['dist', 'build'],
   // https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work
   overrides: [
     {
@@ -20,11 +20,11 @@ module.exports = defineConfig({
     },
     {
       files: [
-        'packages/{vite-plugin-pages,vite-plugin-docs,vite-plugin-inject-css,eslint-plugin,scripts}/**/*.{js,ts}',
+        'packages/{vite-plugin-pages,vite-plugin-docs,vite-plugin-inject-css,eslint-plugin,scripts,ts-config}/**/*.{js,ts}',
         '**/*.mjs',
         '**/vite.config.ts',
       ],
       extends: ['plugin:config/node'],
     },
   ],
-});
+})

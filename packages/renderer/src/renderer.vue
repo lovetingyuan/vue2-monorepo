@@ -74,13 +74,13 @@
 import { version } from '../package.json'
 
 const getQuery = (search) => {
-  const params = new URLSearchParams(search || window.location.search);
-  const query = {};
+  const params = new URLSearchParams(search || window.location.search)
+  const query = {}
   params.forEach((v, k) => {
-    query[k] = v;
-  });
-  return query;
-};
+    query[k] = v
+  })
+  return query
+}
 
 export default {
   /** @type {string} */
@@ -95,7 +95,7 @@ export default {
     const config = JSON.parse(this.config)
     this.refs = {}
     this.query = getQuery()
-    const parent = this.$parent.$parent;
+    const parent = this.$parent.$parent
     if (!parent.configYard.model) {
       parent.$set(parent.configYard, 'model', {})
     }
@@ -130,7 +130,7 @@ export default {
       })
     },
     renderConfig() {
-      const parent = this.$parent.$parent;
+      const parent = this.$parent.$parent
       const config = this.renderConfigFunc(parent, this.query, this.refs, parent.configYard.model)
       if (!this.rendered) { // for get refs
         // eslint-disable-next-line vue/no-async-in-computed-properties

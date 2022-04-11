@@ -1,7 +1,9 @@
 <template>
   <section class="component-example">
     <details>
-      <summary> {{ titleStr }} </summary>
+      <summary>
+        {{ titleStr }}
+      </summary>
       <div class="language-html">
         <span ref="copyBtn" class="copy-button" :data-clipboard-target="'#' + id">复制</span>
         <span v-if="dev" class="code-button" @click="code">打开</span>
@@ -33,7 +35,7 @@ export default {
   watch: {
     sourceCode() {
       if (this.$refs.code) {
-        this.$refs.code.textContent = this.sourceCode;
+        this.$refs.code.textContent = this.sourceCode
       }
       if (this.$el) {
         window.Prism.highlightAllUnder(this.$el)
@@ -51,15 +53,15 @@ export default {
       })
     })
     this.resizeObserver.observe(document.documentElement)
-    this.clipboard = new window.ClipboardJS(this.$refs.copyBtn);
-    this.clipboard.on('success', e => e.clearSelection());
+    this.clipboard = new window.ClipboardJS(this.$refs.copyBtn)
+    this.clipboard.on('success', e => e.clearSelection())
     window.addEventListener('hashchange', this.updateTitle)
     this.targetIframe = [...window.parent.document.querySelectorAll('iframe')].find(iframe => iframe.contentWindow === window)
   },
   beforeDestroy() {
     window.removeEventListener('__code_update__', this.getSourceCode)
     this.resizeObserver.unobserve(document.documentElement)
-    this.clipboard.destroy();
+    this.clipboard.destroy()
     window.removeEventListener('hashchange', this.updateTitle)
   },
   methods: {
@@ -76,7 +78,7 @@ export default {
           return
         }
         import(/* @vite-ignore */`${file.replace(/^.+?\/components\//, '../components/')}?raw&_t=${Date.now()}`).then(r => {
-          this.sourceCode = r.default;
+          this.sourceCode = r.default
         })
       } else {
         this.sourceCode = code
@@ -105,7 +107,7 @@ export default {
 }
 .component-example summary {
   cursor: pointer;
-  background-color: #ffd10033;
+  background-color: #cdcdcd33;
   padding: 8px 15px;
   border-radius: 4px;
   transition: all 0.3s;
@@ -115,13 +117,13 @@ export default {
   margin-right: 1em;
 }
 .component-example summary::after{
-  content: '代码';
+  content: '</code>';
   float: right;
   font-size: 12px;
-  line-height: 24px;
+  line-height: 22px;
 }
 .component-example summary:hover {
-  background-color: #ffd10066;
+  background-color: #b3b3b366;
 }
 
 .component-container {

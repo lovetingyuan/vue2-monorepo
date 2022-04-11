@@ -20,7 +20,7 @@ export default (server: ViteDevServer, mockConfig: Record<string, MockConfig>) =
     }
     await new Promise((r) => { setTimeout(r, 600) })
     send(req, res, JSON.stringify(mockData), 'json', {})
-    return null;
+    return null
   }
   return mockMiddleware
 }

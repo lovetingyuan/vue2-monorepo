@@ -1,5 +1,5 @@
-import Renderer from './src/renderer.vue';
+import Renderer from './src/renderer.vue'
 
-export * from './src/config';
+export * from './src/config'
 
-export { Renderer };
+export { Renderer }

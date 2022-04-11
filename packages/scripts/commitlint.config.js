@@ -2,7 +2,7 @@ const {
   default: getWorkspacePackages,
 } = require('@pnpm/find-workspace-packages')
 
-const { searchForWorkspaceRoot } = require('vite');
+const { searchForWorkspaceRoot } = require('vite')
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],
@@ -12,7 +12,7 @@ module.exports = {
     'scope-enum': async () => {
       const packages = (await getWorkspacePackages(
         searchForWorkspaceRoot(process.cwd())
-      )).map((pkg) => pkg.manifest.name).filter(Boolean);
+      )).map((pkg) => pkg.manifest.name).filter(Boolean)
       return [2, 'always', [
         'chore',
         'style',

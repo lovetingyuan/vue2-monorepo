@@ -1,8 +1,8 @@
-import { fileURLToPath } from 'url';
-import { defineConfig } from 'vite';
-import { createVuePlugin as vue2 } from 'vite-plugin-vue2';
-import { pagePlugin } from 'vite-plugin-pages';
-import proxy from './proxy';
+import { fileURLToPath } from 'url'
+import { defineConfig } from 'vite'
+import { createVuePlugin as vue2 } from 'vite-plugin-vue2'
+import { pagePlugin } from 'vite-plugin-pages'
+import proxy from './proxy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,4 +20,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-});
+})

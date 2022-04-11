@@ -25,7 +25,7 @@
     "vue": "^3.2.31"
   },
   "eslintConfig": {
-    "ignorePatterns": ["public/scene", "!.vitepress"],
+    "ignorePatterns": ["!.vitepress"],
     "overrides": [
       {
         "files": [

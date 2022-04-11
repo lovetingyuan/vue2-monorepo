@@ -18,9 +18,11 @@
       ]
     },
     "lint": {
+      "cache": true,
       "outputs": []
     },
     "lint:fix": {
+      "cache": true,
       "outputs": []
     },
     "playground#dev": {
@@ -60,7 +62,8 @@
     "ui#build:docs": {
       "cache": true,
       "dependsOn": [
-        "vite-plugin-docs#build"
+        "vite-plugin-docs#build",
+        "vite-plugin-inject-css#build"
       ]
     },
     "ui#build": {
@@ -73,7 +76,6 @@
       "cache": false,
       "outputs": []
     },
-    "pub-configs": {},
     "build:docs": {}
   },
   "globalDependencies": []

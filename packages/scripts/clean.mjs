@@ -4,7 +4,7 @@
 import { searchForWorkspaceRoot } from 'vite'
 import glob from 'fast-glob'
 import { fileURLToPath } from 'url'
-import { rm } from 'fs'
+import { rmSync } from 'fs'
 
 const root = searchForWorkspaceRoot(fileURLToPath(import.meta.url))
 
@@ -12,7 +12,9 @@ const dryRun = process.argv.includes('dry-run')
 
 const dirs = glob.sync([
   '**/dist',
+  '**/build',
   '!**/node_modules/**/dist',
+  '!**/node_modules/**/build',
   '**/{.cache,.vite,.turbo}'
 ], {
   dot: true,
@@ -23,19 +25,12 @@ const dirs = glob.sync([
 
 if (dryRun) {
   console.log('delete list: ', dirs)
-  // eslint-disable-next-line no-process-exit
-  process.exit(0)
-}
-
-dirs.forEach(d => {
-  rm(d, {
-    recursive: true,
-    force: true
-  }, (err) => {
-    if (err) {
-      throw err
-    }
+} else {
+  dirs.forEach((d) => {
+    rmSync(d, {
+      recursive: true,
+      force: true
+    })
   })
-})
-
-console.log('cleaned!');
+  console.log('cleaned!')
+}

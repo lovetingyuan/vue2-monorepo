@@ -28,10 +28,6 @@
   },
   "dependencies": {
     "@vuese/markdown-render": "^2.11.3",
-    "@vuese/parser": "^2.10.3",
-    "fs-extra": "^10.0.1"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^9.0.13"
+    "@vuese/parser": "^2.10.3"
   }
 }

@@ -8,8 +8,8 @@ declare module '*.vue' {
 
 declare global {
   namespace JSX {
-    interface Element extends VNode { }
-    interface ElementClass extends Vue { }
+    type Element = VNode
+    type ElementClass = Vue
     interface IntrinsicElements {
       [elem: string]: any
     }

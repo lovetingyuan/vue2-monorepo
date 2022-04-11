@@ -15,10 +15,10 @@ const injectCSSPlugin = (): Plugin => {
     },
     // eslint-disable-next-line consistent-return
     renderChunk(code, chunk) {
-      const { fileName, isEntry } = chunk;
-      const { viteMetadata } = chunk as any;
+      const { fileName, isEntry } = chunk
+      const { viteMetadata } = chunk as any
       if (fileName.endsWith('.es.js') && isEntry && viteMetadata) {
-        return [...viteMetadata.importedCss].map((css) => `import "./${css}";`).join('\n') + code;
+        return [...viteMetadata.importedCss].map((css) => `import "./${css}";`).join('\n') + code
       }
     }
   }

@@ -1,11 +1,11 @@
-import { defineConfig } from 'vitepress';
-import { searchForWorkspaceRoot } from 'vite';
-import { exampleContainer, initMDPlugin } from 'vite-plugin-docs';
+import { defineConfig } from 'vitepress'
+import { searchForWorkspaceRoot } from 'vite'
+import { exampleContainer, initMDPlugin } from 'vite-plugin-docs'
+import container from 'markdown-it-container'
+import path from 'path'
+import fs from 'fs-extra'
 
-import container from 'markdown-it-container';
-import path from 'path';
-
-const rootDir = searchForWorkspaceRoot(__dirname);
+const rootDir = searchForWorkspaceRoot(__dirname)
 
 const getGuideSidebar = () => [
   {
@@ -38,7 +38,7 @@ const getGuideSidebar = () => [
     link: '/pages/readme',
     children: [{ text: 'changelog', link: '/pages/changelog' }],
   },
-];
+]
 
 export default defineConfig({
   title: '文档',
@@ -51,11 +51,23 @@ export default defineConfig({
         '@packages': path.resolve(rootDir, 'packages'),
       },
     },
-    plugins: [initMDPlugin()],
+    plugins: [
+      initMDPlugin(),
+      {
+        name: 'copy-scene-dist',
+        apply: 'build',
+        enforce: 'post',
+        closeBundle() {
+          const distDir = path.resolve(__dirname, './dist/scene')
+          const srcDir = path.resolve(rootDir, 'packages/ui/build')
+          fs.copySync(srcDir, distDir)
+        }
+      }
+    ],
   },
   markdown: {
     config(md) {
-      exampleContainer(md, container);
+      exampleContainer(md, container)
     },
   },
   themeConfig: {
@@ -64,10 +76,11 @@ export default defineConfig({
       { text: '文档', link: '/', activeMatch: '^/' },
       {
         text: '仓库',
-        link: '',
+        link: 'https://github.com/lovetingyuan/vue2-monorepo',
+        target: '_blank',
       },
     ],
     lastUpdated: '✍️',
     sidebar: getGuideSidebar(),
   },
-});
+})

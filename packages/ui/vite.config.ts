@@ -1,16 +1,15 @@
 import {
-  defineConfig, type UserConfig, type ConfigEnv, searchForWorkspaceRoot
-} from 'vite';
-import { resolve } from 'path';
-import { readdirSync } from 'fs';
-import { createVuePlugin as vue2 } from 'vite-plugin-vue2';
-import vs from 'rollup-plugin-visualizer';
-import { docPlugin } from 'vite-plugin-docs';
-import injectCSSPlugin from 'vite-plugin-inject-css';
-import buildUmd from './plugins/vite-plugin-umd';
+  defineConfig, type UserConfig, type ConfigEnv
+} from 'vite'
+import { resolve } from 'path'
+import { readdirSync } from 'fs'
+import { createVuePlugin as vue2 } from 'vite-plugin-vue2'
+import vs from 'rollup-plugin-visualizer'
+import { docPlugin } from 'vite-plugin-docs'
+import injectCSSPlugin from 'vite-plugin-inject-css'
+import buildUmd from './plugins/vite-plugin-umd'
 
-const root = searchForWorkspaceRoot(__dirname);
-const componentsDir = resolve(__dirname, 'components');
+const componentsDir = resolve(__dirname, 'components')
 
 const getConfig = (env: ConfigEnv): UserConfig => {
   if (env.command === 'serve') {
@@ -21,9 +20,9 @@ const getConfig = (env: ConfigEnv): UserConfig => {
         }),
         docPlugin(),
       ],
-    };
+    }
   }
-  if (process.argv.includes('docs')) {
+  if (env.command === 'build' && process.argv.includes('docs')) {
     return {
       base: './',
       plugins: [
@@ -33,10 +32,9 @@ const getConfig = (env: ConfigEnv): UserConfig => {
         docPlugin(),
       ],
       build: {
-        emptyOutDir: true,
-        outDir: resolve(root, 'apps/docs/public/scene'),
-      },
-    };
+        outDir: 'build'
+      }
+    }
   }
   return {
     plugins: [
@@ -48,7 +46,7 @@ const getConfig = (env: ConfigEnv): UserConfig => {
         return {
           filename:
             typeof options.entryFileNames === 'string' ? `stats/${options.entryFileNames}.html` : 'stats/index.html',
-        };
+        }
       }),
       injectCSSPlugin(),
       buildUmd({
@@ -75,7 +73,7 @@ const getConfig = (env: ConfigEnv): UserConfig => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default defineConfig(getConfig);
+export default defineConfig(getConfig)
