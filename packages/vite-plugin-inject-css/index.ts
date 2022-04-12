@@ -1,4 +1,5 @@
 import type { Plugin } from 'vite'
+import { extname } from 'path'
 
 // vite wont inject css when build format is es
 const injectCSSPlugin = (): Plugin => {
@@ -14,10 +15,10 @@ const injectCSSPlugin = (): Plugin => {
       }
     },
     // eslint-disable-next-line consistent-return
-    renderChunk(code, chunk) {
-      const { fileName, isEntry } = chunk
+    renderChunk(code, chunk, opt) {
+      const { fileName, isEntry, isDynamicEntry } = chunk
       const { viteMetadata } = chunk as any
-      if (fileName.endsWith('.es.js') && isEntry && viteMetadata) {
+      if (['.js', '.mjs', '.cjs'].includes(extname(fileName)) && opt.format === 'es' && (isEntry || isDynamicEntry) && viteMetadata) {
         return [...viteMetadata.importedCss].map((css) => `import "./${css}";`).join('\n') + code
       }
     }
