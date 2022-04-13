@@ -17,7 +17,7 @@ importers:
       ts-config: workspace:*
       turbo: latest
       typescript: ~4.5.2
-      vite: ^2.9.1
+      vite: ^2.9.2
       vite-plugin-vue2: ^1.9.3
       vue: ^2.6.14
       vue-template-compiler: ^2.6.14
@@ -31,13 +31,13 @@ importers:
       fs-extra: 10.0.1
       lint-staged: 12.3.7
       rimraf: 3.0.2
-      scripts: link:packages/scripts
+      scripts: link:scripts
       simple-git-hooks: 2.7.0
       ts-config: link:packages/ts-config
       turbo: 1.2.2
       typescript: 4.5.5
-      vite: 2.9.1
-      vite-plugin-vue2: 1.9.3_1fbe351b36f927d48c27a4a7ec773da4
+      vite: 2.9.2
+      vite-plugin-vue2: 1.9.3_e28ee94ed5f6a5570c4978d5a6bdbf22
       vue: 2.6.14
       vue-template-compiler: 2.6.14
       vue-tsc: 0.34.6_typescript@4.5.5
@@ -70,7 +70,7 @@ importers:
       vue-router: 3.5.3
     devDependencies:
       '@vue/runtime-dom': 3.2.31
-      unplugin-vue2-script-setup: 0.7.3_vite@2.9.1
+      unplugin-vue2-script-setup: 0.7.3_vite@2.9.2
 
   apps/playground:
     specifiers:
@@ -86,7 +86,7 @@ importers:
       ui: link:../../packages/ui
     devDependencies:
       '@vue/runtime-dom': 3.2.31
-      unplugin-vue2-script-setup: 0.7.3_vite@2.9.1
+      unplugin-vue2-script-setup: 0.7.3_vite@2.9.2
       vite-plugin-pages: link:../../packages/vite-plugin-pages
 
   packages/config-page:
@@ -148,44 +148,13 @@ importers:
   packages/renderer:
     specifiers: {}
 
-  packages/scripts:
-    specifiers:
-      '@commitlint/cli': ^16.1.0
-      '@commitlint/config-conventional': ^16.2.1
-      '@pnpm/find-workspace-packages': ^3.1.43
-      '@pnpm/logger': ^4.0.0
-      '@types/semver': ^7.3.9
-      '@types/standard-version': ^7.0.1
-      enquirer: ^2.3.6
-      execa: ^6.1.0
-      fast-glob: ^3.2.11
-      picocolors: ^1.0.0
-      semver: ^7.3.5
-      simple-git: ^2.48.0
-      standard-version: ^9.3.2
-    dependencies:
-      '@commitlint/cli': 16.2.3
-      '@commitlint/config-conventional': 16.2.1
-      '@pnpm/find-workspace-packages': 3.1.43_@pnpm+logger@4.0.0
-      '@pnpm/logger': 4.0.0
-      enquirer: 2.3.6
-      execa: 6.1.0
-      fast-glob: 3.2.11
-      picocolors: 1.0.0
-      semver: 7.3.6
-      simple-git: 2.48.0
-      standard-version: 9.3.2
-    devDependencies:
-      '@types/semver': 7.3.9
-      '@types/standard-version': 7.0.1
-
   packages/ts-config:
     specifiers: {}
 
   packages/ui:
     specifiers:
       '@vue/runtime-dom': ^3.2.31
-      rollup-plugin-visualizer: ^5.5.2
+      rollup-plugin-visualizer: ^5.6.0
       vite-plugin-docs: workspace:*
       vite-plugin-inject-css: workspace:*
     devDependencies:
@@ -215,6 +184,37 @@ importers:
     devDependencies:
       '@types/node-fetch': 2.6.1
       rollup: 2.70.1
+
+  scripts:
+    specifiers:
+      '@commitlint/cli': ^16.1.0
+      '@commitlint/config-conventional': ^16.2.1
+      '@pnpm/find-workspace-packages': ^3.1.43
+      '@pnpm/logger': ^4.0.0
+      '@types/semver': ^7.3.9
+      '@types/standard-version': ^7.0.1
+      enquirer: ^2.3.6
+      execa: ^6.1.0
+      fast-glob: ^3.2.11
+      picocolors: ^1.0.0
+      semver: ^7.3.5
+      simple-git: ^2.48.0
+      standard-version: ^9.3.2
+    dependencies:
+      '@commitlint/cli': 16.2.3
+      '@commitlint/config-conventional': 16.2.1
+      '@pnpm/find-workspace-packages': 3.1.43_@pnpm+logger@4.0.0
+      '@pnpm/logger': 4.0.0
+      enquirer: 2.3.6
+      execa: 6.1.0
+      fast-glob: 3.2.11
+      picocolors: 1.0.0
+      semver: 7.3.6
+      simple-git: 2.48.0
+      standard-version: 9.3.2
+    devDependencies:
+      '@types/semver': 7.3.9
+      '@types/standard-version': 7.0.1
 
 packages:
 
@@ -2315,7 +2315,7 @@ packages:
       conventional-changelog-angular: 5.0.13
       conventional-changelog-atom: 2.0.8
       conventional-changelog-codemirror: 2.0.8
-      conventional-changelog-conventionalcommits: 4.6.1
+      conventional-changelog-conventionalcommits: 4.6.3
       conventional-changelog-core: 4.2.4
       conventional-changelog-ember: 2.0.9
       conventional-changelog-eslint: 3.0.9
@@ -5538,7 +5538,7 @@ packages:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
 
-  /unplugin-vue2-script-setup/0.7.3_vite@2.9.1:
+  /unplugin-vue2-script-setup/0.7.3_vite@2.9.2:
     resolution: {integrity: sha512-3C32JkCS7BsNsgUkVnCEIJynHy+N/xwqiaUiMkeTm3Rk+HfHMhEPQ5Gysg3tejWY7KJyk8CohUKswTChurI1ng==}
     peerDependencies:
       pug: ^3.0.2
@@ -5559,7 +5559,7 @@ packages:
       defu: 5.0.1
       htmlparser2: 5.0.1
       magic-string: 0.25.9
-      unplugin: 0.2.21_vite@2.9.1
+      unplugin: 0.2.21_vite@2.9.2
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -5567,7 +5567,7 @@ packages:
       - webpack
     dev: true
 
-  /unplugin/0.2.21_vite@2.9.1:
+  /unplugin/0.2.21_vite@2.9.2:
     resolution: {integrity: sha512-IJ15/L5XbhnV7J09Zjk0FT5HEkBjkXucWAXQWRsmEtUxmmxwh23yavrmDbCF6ZPxWiVB28+wnKIHePTRRpQPbQ==}
     peerDependencies:
       rollup: ^2.50.0
@@ -5581,7 +5581,7 @@ packages:
       webpack:
         optional: true
     dependencies:
-      vite: 2.9.1
+      vite: 2.9.2
       webpack-virtual-modules: 0.4.3
     dev: true
 
@@ -5608,7 +5608,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: false
 
-  /vite-plugin-vue2/1.9.3_1fbe351b36f927d48c27a4a7ec773da4:
+  /vite-plugin-vue2/1.9.3_e28ee94ed5f6a5570c4978d5a6bdbf22:
     resolution: {integrity: sha512-0KhHSEeht0VHJtt4Z2cJ9bWBq4dP3HoXpapqAHV+f+cUa6KywYdOd+z6sSGLpuGjN8F9YinrFIo8dfVmMOpc8Q==}
     peerDependencies:
       vite: ^2.0.0-beta.23
@@ -5633,7 +5633,7 @@ packages:
       rollup: 2.70.1
       slash: 3.0.0
       source-map: 0.7.3
-      vite: 2.9.1
+      vite: 2.9.2
       vue-template-compiler: 2.6.14
       vue-template-es2015-compiler: 1.9.1
     transitivePeerDependencies:
@@ -5642,6 +5642,30 @@ packages:
 
   /vite/2.9.1:
     resolution: {integrity: sha512-vSlsSdOYGcYEJfkQ/NeLXgnRv5zZfpAsdztkIrs7AZHV8RCMZQkwjo4DS5BnrYTqoWqLoUe1Cah4aVO4oNNqCQ==}
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.14.34
+      postcss: 8.4.12
+      resolve: 1.22.0
+      rollup: 2.70.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/2.9.2:
+    resolution: {integrity: sha512-ScbfYsiG1N/xE2TnZWYWJ8aOFBQovEl4VLU+0dktxqXvqdAvcTOEUM5YqwaBkmNHSHUGHLPd92tuXFQ35wDkVw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
