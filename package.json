@@ -6,7 +6,8 @@
   "workspaces": [
     "apps/*",
     "packages/*",
-    "scripts"
+    "scripts",
+    "vite-plugins/*"
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",

@@ -34,7 +34,8 @@
     "ui#dev": {
       "cache": false,
       "dependsOn": [
-        "vite-plugin-docs#build"
+        "vite-plugin-docs#build",
+        "vite-plugin-inject-css#build"
       ]
     },
     "dev": {
@@ -69,7 +70,8 @@
     "ui#build": {
       "cache": true,
       "dependsOn": [
-        "vite-plugin-docs#build"
+        "vite-plugin-docs#build",
+        "vite-plugin-inject-css#build"
       ]
     },
     "release": {
