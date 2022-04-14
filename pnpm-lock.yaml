@@ -54,7 +54,7 @@ importers:
     devDependencies:
       '@types/markdown-it-container': 2.0.5
       markdown-it-container: 3.0.0
-      vite-plugin-docs: link:../../vite-plugins/vite-plugin-docs
+      vite-plugin-docs: link:../../vite-plugins/docs
       vitepress: 0.22.3
 
   apps/platform:
@@ -87,7 +87,7 @@ importers:
     devDependencies:
       '@vue/runtime-dom': 3.2.31
       unplugin-vue2-script-setup: 0.7.3_vite@2.9.2
-      vite-plugin-pages: link:../../vite-plugins/vite-plugin-pages
+      vite-plugin-pages: link:../../vite-plugins/pages
 
   packages/config-page:
     specifiers:
@@ -95,7 +95,7 @@ importers:
       vite-plugin-inject-css: workspace:*
     devDependencies:
       renderer: link:../renderer
-      vite-plugin-inject-css: link:../../vite-plugins/vite-plugin-inject-css
+      vite-plugin-inject-css: link:../../vite-plugins/inject-css
 
   packages/eslint-plugin:
     specifiers:
@@ -143,7 +143,7 @@ importers:
       renderer: link:../renderer
       simple-git: 2.48.0
       ui: link:../ui
-      vite-plugin-inject-css: link:../../vite-plugins/vite-plugin-inject-css
+      vite-plugin-inject-css: link:../../vite-plugins/inject-css
 
   packages/renderer:
     specifiers: {}
@@ -160,8 +160,8 @@ importers:
     devDependencies:
       '@vue/runtime-dom': 3.2.31
       rollup-plugin-visualizer: 5.6.0
-      vite-plugin-docs: link:../../vite-plugins/vite-plugin-docs
-      vite-plugin-inject-css: link:../../vite-plugins/vite-plugin-inject-css
+      vite-plugin-docs: link:../../vite-plugins/docs
+      vite-plugin-inject-css: link:../../vite-plugins/inject-css
 
   scripts:
     specifiers:
@@ -194,7 +194,7 @@ importers:
       '@types/semver': 7.3.9
       '@types/standard-version': 7.0.1
 
-  vite-plugins/vite-plugin-docs:
+  vite-plugins/docs:
     specifiers:
       '@vuese/markdown-render': ^2.11.3
       '@vuese/parser': ^2.10.3
@@ -202,10 +202,10 @@ importers:
       '@vuese/markdown-render': 2.11.3
       '@vuese/parser': 2.10.3
 
-  vite-plugins/vite-plugin-inject-css:
+  vite-plugins/inject-css:
     specifiers: {}
 
-  vite-plugins/vite-plugin-pages:
+  vite-plugins/pages:
     specifiers:
       '@types/node-fetch': 2.6.1
       node-fetch: 2.6.1
@@ -5349,6 +5349,14 @@ packages:
       typescript: 4.5.5
     dev: false
 
+  /turbo-darwin-64/1.2.3:
+    resolution: {integrity: sha512-lJRPC9SJtWzEkqbjYROJ7MD/kki+y1hAGoEujC9gb6zoAAxY7qBN+N30EkfyFIfAiZUQ6RRydETIdeUTnvZ0jw==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /turbo-darwin-arm64/1.2.3:
     resolution: {integrity: sha512-ff7jYMDmreZJ89E0xaL508TrI0afpLa3aQGLkuLEHBqY6AlC68LvrBo99BkQu1q2PEu5DE/0EX0cGDsBPLacdQ==}
     cpu: [arm64]
@@ -5405,6 +5413,14 @@ packages:
     dev: true
     optional: true
 
+  /turbo-linux-mips64le/1.2.3:
+    resolution: {integrity: sha512-H78+1t7N1fWUeD52cRtCAgW713tGxs9lPPEoxCq02snA7pfdFsuvk85c3UUDXxSl0sNk3VBZNsIw/XrPjb2DNw==}
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /turbo-linux-ppc64le/1.2.3:
     resolution: {integrity: sha512-c0Epw0CX7f6B6rv6uscBFa7PIJMfOeYCltH5s/iWl06lTt0X9wJppQXDhe9KiKaf2WxBk9+mNtIu0Zhw/npwMw==}
     cpu: [ppc64]
@@ -5434,6 +5450,7 @@ packages:
     hasBin: true
     requiresBuild: true
     optionalDependencies:
+      turbo-darwin-64: 1.2.3
       turbo-darwin-arm64: 1.2.3
       turbo-freebsd-64: 1.2.3
       turbo-freebsd-arm64: 1.2.3
@@ -5441,6 +5458,7 @@ packages:
       turbo-linux-64: 1.2.3
       turbo-linux-arm: 1.2.3
       turbo-linux-arm64: 1.2.3
+      turbo-linux-mips64le: 1.2.3
       turbo-linux-ppc64le: 1.2.3
       turbo-windows-32: 1.2.3
       turbo-windows-64: 1.2.3
