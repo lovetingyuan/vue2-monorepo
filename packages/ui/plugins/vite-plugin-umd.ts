@@ -17,9 +17,7 @@ export default (options: {
   options.entries.forEach(f => {
     const entry = resolve(f, 'index.ts')
     if (existsSync(entry)) {
-      const dir = basename(f)
-        .replace(/-[a-zA-Z]/g, s => s.toUpperCase().slice(1))
-        .replace(/^[a-z]/, s => s.toUpperCase())
+      const dir = basename(f).replace(/(-|\b)[a-zA-Z]/g, s => s.toUpperCase().slice(s.length - 1))
       try {
         // eslint-disable-next-line no-new-func
         new Function(`const ${dir} = 0;`)()
