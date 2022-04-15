@@ -21,8 +21,9 @@ module.exports = defineConfig({
     {
       files: [
         'vite-plugins/**/*.{js,ts}',
-        'packages/{eslint-plugin,ts-config}/**/*.{js,ts}',
+        'packages/eslint-plugin/**/*.{js,ts}',
         'scripts/**/*.{js,ts,mjs}',
+        'ts-config/*.ts',
         '**/vite.config.ts',
       ],
       extends: ['plugin:config/node'],
