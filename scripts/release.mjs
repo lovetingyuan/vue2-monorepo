@@ -27,6 +27,7 @@ const pkg = require(resolve('package.json'))
 
 const repo = typeof pkg.repository === 'string' ? pkg.repository : pkg.repository.url
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 async function main() {
   if (pkg.private) {
     console.log(`${pkg.name} 是私有包，不能发布`)

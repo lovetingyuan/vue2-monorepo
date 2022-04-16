@@ -2,20 +2,12 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
     "types": {
-      "dependsOn": [
-        "^types"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
+      "dependsOn": ["^types"],
+      "outputs": ["dist/**"]
     },
     "lint": {
       "cache": true,
@@ -27,52 +19,32 @@
     },
     "playground#dev": {
       "cache": false,
-      "dependsOn": [
-        "vite-plugin-pages#build"
-      ]
+      "dependsOn": ["vite-plugin-pages#build"]
     },
     "ui#dev": {
       "cache": false,
-      "dependsOn": [
-        "vite-plugin-docs#build",
-        "vite-plugin-inject-css#build"
-      ]
+      "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": [
-        "^types"
-      ],
+      "dependsOn": ["^types"],
       "cache": false
     },
     "docs#dev": {
-      "dependsOn": [
-        "vite-plugin-docs#build"
-      ],
+      "dependsOn": ["vite-plugin-docs#build"],
       "cache": false
     },
     "docs#build": {
-      "dependsOn": [
-        "ui#build:docs"
-      ],
-      "outputs": [
-        "dist/**",
-        ".vitepress/dist/**"
-      ],
+      "dependsOn": ["ui#build:docs"],
+      "outputs": ["dist/**", ".vitepress/dist/**"],
       "cache": true
     },
     "ui#build:docs": {
       "cache": true,
-      "dependsOn": [
-        "vite-plugin-docs#build",
-        "vite-plugin-inject-css#build"
-      ]
+      "dependsOn": ["^build"]
     },
     "ui#build": {
       "cache": true,
-      "dependsOn": [
-        "vite-plugin-docs#build",
-        "vite-plugin-inject-css#build"
-      ]
+      "dependsOn": ["^build"]
     },
     "release": {
       "cache": false,
