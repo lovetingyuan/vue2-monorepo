@@ -3,7 +3,7 @@ a * {
   color: var(--c-brand);
 }
 
-Start {
+Doc {
   display: none;
 }
 
@@ -14,55 +14,5 @@ Start {
   min-height: calc(100vh - 260px);
 }
 .theme .nav-bar {
-  background-color: #ffd100cc;
-}
-
-/* ------- code block copy button --------- */
-pre {
-  position: relative;
-}
-.m-mdic-copy-wrapper {
-  position: absolute;
-  top: 24px;
-  right: 6px;
-}
-
-.m-mdic-copy-wrapper div.u-mdic-copy-notify {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 3px 6px;
-  border: 0;
-  border-radius: 3px;
-  background: none;
-  font-family: system-ui;
-  font-size: 12px;
-  line-height: 18px;
-  color: #888;
-  opacity: 0.3;
-  outline: none;
-  opacity: 1;
-  right: 100%;
-  padding-right: 4px;
-}
-.m-mdic-copy-wrapper button.u-mdic-copy-btn {
-  position: relative;
-  top: 0;
-  right: 0;
-  padding: 3px 6px;
-  border: 0;
-  border-radius: 3px;
-  background: none;
-  font-family: system-ui;
-  font-size: 12px;
-  line-height: 18px;
-  color: #ddd;
-  opacity: 0.6;
-  outline: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.m-mdic-copy-wrapper button.u-mdic-copy-btn:hover {
-  opacity: 1;
+  background-color: #ffffffcc;
 }

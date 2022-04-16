@@ -1,0 +1,10 @@
+{
+  "extends": "ts-config/app.json",
+  "compilerOptions": {
+    "outDir": "dist",
+  },
+  "include": [
+    "index.ts",
+    "src"
+  ]
+}

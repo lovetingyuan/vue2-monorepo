@@ -1,9 +1,0 @@
-{
-  "extends": "tsconfig/app.json",
-  "include": [
-    "*.ts",
-    "src",
-    "plugins",
-    "public"
-  ]
-}

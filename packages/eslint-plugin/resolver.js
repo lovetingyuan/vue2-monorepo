@@ -24,27 +24,29 @@ function resolve(source, file, config = {}) {
     let projectRoot = file
     while (!isWorkDir(projectRoot)) {
       projectRoot = path.dirname(projectRoot)
-      if (projectRoot.length < 3) { break }
+      if (projectRoot.length < 3) {
+        break
+      }
     }
     const newSource = path.resolve(projectRoot, source.replace('@/', './src/'))
     return nodeResolve.call(this, newSource, file, config)
   }
-  if (source.startsWith('@yxfe/hydra-pages/')) {
+  if (source.startsWith('pages/')) {
     const [, , ...page] = source.split('/')
-    const targetFile = path.resolve(root, 'packages/hydra-pages/src/pages', ...page, 'index.vue')
+    const targetFile = path.resolve(root, 'packages/pages/src/pages', ...page, 'index.vue')
     if (fs.existsSync(targetFile)) {
       return {
         found: true,
-        path: targetFile
+        path: targetFile,
       }
     }
   }
   return {
-    found: false
+    found: false,
   }
 }
 
 module.exports = {
   ...nodeResolver,
-  resolve
+  resolve,
 }

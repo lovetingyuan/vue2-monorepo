@@ -1,0 +1,33 @@
+{
+  "name": "config-page",
+  "version": "0.0.1",
+  "description": "配置化页面容器",
+  "main": "./dist/config-page.umd.js",
+  "module": "./dist/config-page.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "development": "./index.ts",
+    "import": "./dist/config-page.es.js",
+    "require": "./dist/config-page.umd.js"
+  },
+  "scripts": {
+    "build": "vite build && npm run types",
+    "typecheck": "vue-tsc --noEmit",
+    "types": "vue-tsc --declaration --emitDeclarationOnly",
+    "release": "release",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "vue": "^2.6.14",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "devDependencies": {
+    "renderer": "workspace:*",
+    "vite-plugin-inject-css": "workspace:*"
+  }
+}

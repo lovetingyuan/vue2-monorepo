@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "DEBUG=vite:proxy vite --port 8080",
+    "dev": "cross-env DEBUG=vite:proxy vite --port 8080",
     "preview": "vite preview --port 5050",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -11,23 +11,13 @@
     "postinstall": "init-proxy"
   },
   "dependencies": {
-    "@mt-material/mtd-vue-pro": "^0.10.6",
-    "@ss/mtd-vue": "^0.3.32",
-    "@yxfe/log-components": "^0.1.14",
-    "@yxfe/log-poi-select": "^0.1.14",
-    "@yxfe/maya-core": "workspace:*",
-    "@yxfe/hydra-pages": "workspace:*",
-    "@yxfe/hydra-ui": "workspace:*",
-    "@yxfe/request": "^1.6.4",
-    "@yxfe/tools": "^1.2.12",
-    "lodash": "^4.17.21",
-    "vue": "^2.6.14"
+    "config-page": "workspace:*",
+    "pages": "workspace:*",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@vue/runtime-dom": "^3.2.22",
     "vite-plugin-pages": "workspace:*",
-    "tsconfig": "workspace:*",
-    "unplugin-vue2-script-setup": "^0.7.1",
-    "scripts": "workspace:*"
+    "unplugin-vue2-script-setup": "^0.7.1"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "extends": "ts-config/node.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "references": [
+    {
+      "path": "./page"
+    }
+  ],
+  "files": [
+    "index.ts"
+  ]
+}

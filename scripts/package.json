@@ -1,0 +1,42 @@
+{
+  "name": "scripts",
+  "version": "0.0.1",
+  "private": true,
+  "description": "通用工具脚本",
+  "bin": {
+    "release": "./release.mjs",
+    "init-proxy": "./init-proxy.mjs",
+    "clean": "./clean.mjs",
+    "lint-commit": "./lint-commit.mjs"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-console": [
+        "off"
+      ]
+    }
+  },
+  "author": "huangbaitu",
+  "license": "ISC",
+  "dependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@pnpm/find-workspace-packages": "^3.1.43",
+    "@pnpm/logger": "^4.0.0",
+    "enquirer": "^2.3.6",
+    "execa": "^6.1.0",
+    "fast-glob": "^3.2.11",
+    "picocolors": "^1.0.0",
+    "semver": "^7.3.5",
+    "simple-git": "^2.48.0",
+    "standard-version": "^9.3.2"
+  },
+  "devDependencies": {
+    "@types/semver": "^7.3.9",
+    "@types/standard-version": "^7.0.1"
+  }
+}

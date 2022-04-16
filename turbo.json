@@ -2,78 +2,54 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
     "types": {
-      "dependsOn": [
-        "^types"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
+      "dependsOn": ["^types"],
+      "outputs": ["dist/**"]
     },
     "lint": {
+      "cache": true,
       "outputs": []
     },
     "lint:fix": {
+      "cache": true,
       "outputs": []
     },
     "playground#dev": {
       "cache": false,
-      "dependsOn": [
-        "vite-plugin-pages#build"
-      ]
+      "dependsOn": ["vite-plugin-pages#build"]
     },
-    "@yxfe/hydra-ui#dev": {
+    "ui#dev": {
       "cache": false,
-      "dependsOn": [
-        "vite-plugin-docs#build"
-      ]
+      "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": [
-        "^types"
-      ],
+      "dependsOn": ["^types"],
       "cache": false
     },
     "docs#dev": {
-      "dependsOn": [
-        "vite-plugin-docs#build"
-      ],
+      "dependsOn": ["vite-plugin-docs#build"],
       "cache": false
     },
     "docs#build": {
-      "dependsOn": [
-        "@yxfe/hydra-ui#build:docs"
-      ],
-      "outputs": [
-        "dist/**",
-        ".vitepress/dist/**"
-      ],
+      "dependsOn": ["ui#build:docs"],
+      "outputs": ["dist/**", ".vitepress/dist/**"],
       "cache": true
     },
-    "@yxfe/hydra-ui#build:docs": {
+    "ui#build:docs": {
       "cache": true,
-      "dependsOn": [
-        "vite-plugin-docs#build"
-      ]
+      "dependsOn": ["^build"]
     },
-    "@yxfe/hydra-ui#build": {
+    "ui#build": {
       "cache": true,
-      "dependsOn": [
-        "vite-plugin-docs#build"
-      ]
+      "dependsOn": ["^build"]
     },
     "release": {
       "cache": false,
       "outputs": []
     },
-    "pub-configs": {},
     "build:docs": {}
   },
   "globalDependencies": []

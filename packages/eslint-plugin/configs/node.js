@@ -33,7 +33,6 @@ module.exports = defineConfig({
         ts: 'never',
       },
     ],
-
     'node/no-unsupported-features/es-syntax': ['off'],
     'node/no-unsupported-features/node-builtins': ['off'],
     'node/no-unpublished-import': ['warn'],
@@ -43,8 +42,8 @@ module.exports = defineConfig({
     'node/no-missing-require': ['error', {
       tryExtensions
     }],
-    'node/no-extraneous-import': ['error', {
-      allowModules: ['vue', 'vite', 'vite-plugin-vue2'],
+    'node/no-extraneous-import': ['warn', {
+      allowModules: ['vue', 'vite', 'fs-extra', 'vite-plugin-vue2'],
       tryExtensions
     }],
     'node/no-extraneous-require': ['error', {

@@ -1,12 +1,11 @@
-import { defineConfig } from 'vitepress';
-import { searchForWorkspaceRoot } from 'vite';
-import { exampleContainer, initMDPlugin } from 'vite-plugin-docs';
+import { defineConfig } from 'vitepress'
+import { searchForWorkspaceRoot } from 'vite'
+import { exampleContainer, initMDPlugin } from 'vite-plugin-docs'
+import container from 'markdown-it-container'
+import path from 'path'
+import fs from 'fs-extra'
 
-import container from 'markdown-it-container';
-import path from 'path';
-import pkg from '../package.json';
-
-const rootDir = searchForWorkspaceRoot(__dirname);
+const rootDir = searchForWorkspaceRoot(__dirname)
 
 const getGuideSidebar = () => [
   {
@@ -14,14 +13,14 @@ const getGuideSidebar = () => [
     link: '/',
   },
   {
-    text: 'maya-core',
-    link: '/maya-core/readme',
-    children: [{ text: 'changelog', link: '/maya-core/changelog' }],
+    text: 'config-page',
+    link: '/config-page/readme',
+    children: [{ text: 'changelog', link: '/config-page/changelog' }],
   },
   {
-    text: 'maya-renderer',
-    link: '/maya-renderer/readme',
-    children: [{ text: 'changelog', link: '/maya-renderer/changelog' }],
+    text: 'renderer',
+    link: '/renderer/readme',
+    children: [{ text: 'changelog', link: '/renderer/changelog' }],
   },
   {
     text: 'components',
@@ -30,16 +29,7 @@ const getGuideSidebar = () => [
       { text: 'changelog', link: '/components/changelog' },
       {
         text: 'demo',
-        children: [
-          {
-            text: 'demo',
-            link: '/components/demo/demo',
-          },
-        ],
-      },
-      {
-        text: 'search-table',
-        link: '/components/search-table/SearchProTable',
+        link: '/components/demo/demo',
       },
     ],
   },
@@ -48,12 +38,11 @@ const getGuideSidebar = () => [
     link: '/pages/readme',
     children: [{ text: 'changelog', link: '/pages/changelog' }],
   },
-];
+]
 
 export default defineConfig({
-  title: '配置化文档',
-  description: 'maya文档站',
-  // srcDir: rootDir,
+  title: '文档',
+  description: '文档站',
   head: [['link', { rel: 'shortcut icon', href: '/icon.png' }]],
   vite: {
     resolve: {
@@ -63,12 +52,22 @@ export default defineConfig({
       },
     },
     plugins: [
-      initMDPlugin()
+      initMDPlugin(),
+      {
+        name: 'copy-scene-dist',
+        apply: 'build',
+        enforce: 'post',
+        closeBundle() {
+          const distDir = path.resolve(__dirname, './dist/scene')
+          const srcDir = path.resolve(rootDir, 'packages/ui/build')
+          fs.copySync(srcDir, distDir)
+        }
+      }
     ],
   },
   markdown: {
     config(md) {
-      exampleContainer(md, container);
+      exampleContainer(md, container)
     },
   },
   themeConfig: {
@@ -77,10 +76,11 @@ export default defineConfig({
       { text: '文档', link: '/', activeMatch: '^/' },
       {
         text: '仓库',
-        link: pkg.repository.url,
+        link: 'https://github.com/lovetingyuan/vue2-monorepo',
+        target: '_blank',
       },
     ],
     lastUpdated: '✍️',
     sidebar: getGuideSidebar(),
   },
-});
+})

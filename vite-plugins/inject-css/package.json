@@ -1,0 +1,29 @@
+{
+  "name": "vite-plugin-inject-css",
+  "version": "0.0.1",
+  "private": true,
+  "description": "为es格式注入css",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && pnpm exec tsc",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vite",
+    "inject-css",
+    "plugin"
+  ],
+  "author": "huangbaitu",
+  "license": "ISC",
+  "peerDependencies": {
+    "vite": "^2.9.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -66,6 +66,7 @@ module.exports = {
     ],
   },
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   create(context) {
     const filename = context.getFilename()
 

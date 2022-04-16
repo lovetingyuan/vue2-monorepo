@@ -1,0 +1,9 @@
+{
+  "extends": "ts-config/app.json",
+  "include": [
+    "env.d.ts",
+    "src",
+    "plugins",
+    "public"
+  ]
+}

@@ -29,8 +29,9 @@ module.exports = {
 
   create(context) {
     return {
+      // eslint-disable-next-line sonarjs/cognitive-complexity
       JSXElement(node) {
-        let { parent } = node;
+        let { parent } = node
         let valid = false
         while (parent && parent.type !== 'Program') {
           if (parent.type === 'FunctionExpression') {
@@ -38,19 +39,19 @@ module.exports = {
             if (gp && gp.type === 'Property' && (gp.method || gp.kind === 'get' || gp.kind === 'set')) { // must be es6 object method
               const ggp = gp.parent
               if (ggp && ggp.type === 'ObjectExpression') {
-                valid = true;
-                break;
+                valid = true
+                break
               }
             }
             if (gp && gp.type === 'MethodDefinition') {
               const ggp = gp.parent
               if (ggp && ggp.type === 'ClassBody') {
-                valid = true;
-                break;
+                valid = true
+                break
               }
             }
           }
-          parent = parent.parent;
+          parent = parent.parent
         }
         if (!valid) {
           context.report({
@@ -59,6 +60,6 @@ module.exports = {
           })
         }
       },
-    };
+    }
   }
-};
+}

@@ -1,6 +1,8 @@
 // @ts-check
 
-const { defineConfig } = require('eslint-define-config');
+const { defineConfig } = require('eslint-define-config')
+
+const tsParser = '@typescript-eslint/parser'
 
 module.exports = defineConfig({
   env: {
@@ -12,7 +14,7 @@ module.exports = defineConfig({
   settings: {
     'import/core-modules': ['@page'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+      [tsParser]: ['.ts', '.tsx', '.d.ts'],
     },
   },
   plugins: ['config'],
@@ -63,8 +65,8 @@ module.exports = defineConfig({
         },
         // @ts-ignore
         parser: {
-          ts: '@typescript-eslint/parser',
-          tsx: '@typescript-eslint/parser',
+          ts: tsParser,
+          tsx: tsParser,
           '<template>': 'espree',
         },
         extraFileExtensions: ['.vue'],
@@ -100,7 +102,7 @@ module.exports = defineConfig({
     },
     {
       files: ['*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
+      parser: tsParser,
       parserOptions: {
         ecmaVersion: 2021,
         sourceType: 'module',
@@ -115,4 +117,4 @@ module.exports = defineConfig({
       ],
     }
   ]
-});
+})

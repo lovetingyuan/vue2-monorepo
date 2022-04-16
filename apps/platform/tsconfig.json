@@ -1,5 +1,12 @@
 {
-  "extends": "tsconfig/app.json",
+  "extends": "ts-config/app.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+    }
+  },
   "vueCompilerOptions": {
     "experimentalCompatMode": 2,
     "experimentalDisableTemplateSupport": true

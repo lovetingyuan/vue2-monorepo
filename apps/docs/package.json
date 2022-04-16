@@ -7,12 +7,9 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve --port=5555",
-    "lint": "eslint .vitepress",
-    "lint:fix": "eslint .vitepress --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://dev.sankuai.com/code/repo-detail/grocery/mall-fe-pc-maya"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:md": "pnpm exec markdownlint ./**/*.md --fix --ignore node_modules"
   },
   "keywords": [
     "docs"
@@ -22,7 +19,6 @@
   "devDependencies": {
     "@types/markdown-it-container": "^2.0.4",
     "markdown-it-container": "^3.0.0",
-    "tsconfig": "workspace:*",
     "vite-plugin-docs": "workspace:*",
     "vitepress": "^0.22.3"
   },
@@ -30,21 +26,25 @@
     "vue": "^3.2.31"
   },
   "eslintConfig": {
+    "ignorePatterns": [
+      "!.vitepress"
+    ],
     "overrides": [
-      {
-        "files": [
-          ".vitepress/theme/**"
-        ],
-        "extends": "plugin:config/vue2"
-      },
       {
         "files": [
           ".vitepress/*.{ts,js}"
         ],
         "extends": "plugin:config/node",
         "rules": {
-          "node/no-unpublished-require": "off"
+          "node/no-unpublished-require": "off",
+          "node/no-unpublished-import": "off"
         }
+      },
+      {
+        "files": [
+          ".vitepress/theme/**"
+        ],
+        "extends": "plugin:config/vue2"
       }
     ]
   }

@@ -24,12 +24,13 @@ module.exports = defineConfig({
     ecmaVersion: 2021,
     sourceType: 'module'
   },
-  plugins: ['import', 'config'],
+  plugins: ['import', 'sonarjs', 'config'],
+  extends: ['plugin:sonarjs/recommended'],
   rules: {
     'config/require-jsx-ext': ['error'],
     'config/valid-jsx-h-inject': ['error'],
 
-    semi: ['off'],
+    semi: ['error', 'never'],
     'comma-dangle': ['off'],
     'arrow-body-style': ['off'],
     'arrow-parens': ['off'],

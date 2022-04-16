@@ -1,0 +1,33 @@
+{
+  "name": "vite-plugin-docs",
+  "version": "0.0.1",
+  "private": true,
+  "description": "为组件库生成文档",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && pnpm exec tsc",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vite",
+    "docs",
+    "plugin"
+  ],
+  "author": "huangbaitu",
+  "license": "ISC",
+  "peerDependencies": {
+    "vite": "^2.8.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@vuese/markdown-render": "^2.11.3",
+    "@vuese/parser": "^2.10.3"
+  }
+}

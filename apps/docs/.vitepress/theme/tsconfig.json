@@ -1,5 +1,5 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "extends": "ts-config/app.json",
   "files": [
     "index.ts"
   ]

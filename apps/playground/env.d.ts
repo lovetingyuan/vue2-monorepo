@@ -1,6 +1,6 @@
 /// <reference types="vite-plugin-pages/client" />
 
-declare module '@yxfe/log-*' {
+declare module 'log-*' {
   import { PluginObject } from 'vue'
 
   const a: PluginObject

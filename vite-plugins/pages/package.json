@@ -1,0 +1,46 @@
+{
+  "name": "vite-plugin-pages",
+  "version": "0.0.1",
+  "private": true,
+  "description": "vite的约定式路由插件",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && pnpm exec tsc -b",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "files": [
+    "dist",
+    "client.d.ts",
+    "!**/*.tsbuildinfo"
+  ],
+  "keywords": [
+    "vite",
+    "pages",
+    "plugin"
+  ],
+  "author": "huangbaitu",
+  "license": "ISC",
+  "peerDependencies": {
+    "vite": "^2.8.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "2.6.1",
+    "rollup": "^2.59.0"
+  },
+  "dependencies": {
+    "node-fetch": "2.6.1"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": "./page/**",
+        "extends": "plugin:config/vue2"
+      }
+    ]
+  }
+}
