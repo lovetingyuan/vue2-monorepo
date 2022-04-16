@@ -2,7 +2,7 @@ import type { Plugin } from 'vite'
 import { extname } from 'path'
 
 // vite wont inject css when build format is es
-const injectCSSPlugin = (): Plugin => {
+export default (): Plugin => {
   return {
     name: 'inject-css-for-es',
     apply: 'build',
@@ -24,5 +24,3 @@ const injectCSSPlugin = (): Plugin => {
     }
   }
 }
-
-export default injectCSSPlugin

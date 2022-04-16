@@ -7,8 +7,7 @@ import { Render } from '@vuese/markdown-render'
 
 const initMD = '<Doc title="本文件由组件 doc 块和注释自动生成，勿直接修改。" />'
 const rootDir = searchForWorkspaceRoot(__dirname)
-const DocPath = 'apps/docs'
-const UIPath = 'packages/ui'
+const [DocPath, UIPath] = ['apps/docs', 'packages/ui']
 
 function exampleContainer(md: any, container: any) {
   // eslint-disable-next-line global-require

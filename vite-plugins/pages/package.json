@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && npx tsc -b",
+    "build": "rimraf dist && pnpm exec tsc -b",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

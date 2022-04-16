@@ -8,7 +8,6 @@ function pagePlugin(options?: PluginOptions): Plugin {
   const IframePage = '@page'
   const name = 'vite-plugin-pages'
   const mockTable: Record<string, MockConfig> = {}
-
   return {
     name,
     resolveId(id) {
@@ -38,14 +37,10 @@ function pagePlugin(options?: PluginOptions): Plugin {
         const { userProxy = {}, defaultProxy = {} } = options
         Object.keys(userProxy).forEach((k) => {
           const mock = userProxy[k]
-          if (typeof mock !== 'string') {
-            if (typeof mock === 'function') {
-              mockTable[k] = mock
-              delete userProxy[k]
-            } else if ('code' in mock && 'data' in mock) {
-              mockTable[k] = mock
-              delete userProxy[k]
-            }
+          if (typeof mock === 'string') { return }
+          if (typeof mock === 'function' || ('code' in mock && 'data' in mock)) {
+            mockTable[k] = mock
+            delete userProxy[k]
           }
         })
         config.server.proxy = {
