@@ -29,6 +29,7 @@ module.exports = {
 
   create(context) {
     return {
+      // eslint-disable-next-line sonarjs/cognitive-complexity
       JSXElement(node) {
         let { parent } = node
         let valid = false

@@ -13,6 +13,7 @@ export default defineComponent({
       type: String,
     },
   },
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   setup(props, { slots }) {
     const iframeSrc = ref('')
     const hidden = ref(false)

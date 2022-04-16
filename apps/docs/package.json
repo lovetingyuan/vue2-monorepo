@@ -8,7 +8,8 @@
     "build": "vitepress build",
     "serve": "vitepress serve --port=5555",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "lint:md": "pnpm exec markdownlint ./**/*.md --fix --ignore node_modules"
   },
   "keywords": [
     "docs"
@@ -25,7 +26,9 @@
     "vue": "^3.2.31"
   },
   "eslintConfig": {
-    "ignorePatterns": ["!.vitepress"],
+    "ignorePatterns": [
+      "!.vitepress"
+    ],
     "overrides": [
       {
         "files": [
