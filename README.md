@@ -1,3 +1,3 @@
-#### vue2 monorepo
+#### Vue2 Monorepo
 
-vue2 + vite + typescript + turborepo + pnpm
+Vue2 + vite + Typescript + Turborepo + pnpm
